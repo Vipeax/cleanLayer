@@ -1,0 +1,7 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\bin\Release\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\bin\Release\cleanPattern.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Release\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Release\cleanPattern.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanPattern.pdb

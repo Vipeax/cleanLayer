@@ -1,0 +1,11 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\cleanPattern.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Release\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Release\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Release\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanCore.pdb

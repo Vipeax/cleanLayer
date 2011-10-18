@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="cleanLayer.GUI.Pages.ScriptsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:cleanLayer.GUI"
+             mc:Ignorable="d" d:DesignHeight="468" d:DesignWidth="489">
+    <UserControl.Resources>
+        <Style x:Key="ScriptLogReaderHeaderStyle" TargetType="{x:Type TextBlock}" >
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsRunning}" Value="true">
+                    <Setter Property="Foreground" Value="Green" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ScriptLogReaderCategoryStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ResourceKey=ScriptLogReaderHeaderStyle}" >
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Category}" Value="{x:Null}">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="Auto" MinWidth="2" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Content="Start" Name="buttonStart" Height="23" VerticalAlignment="Bottom" Click="buttonStart_Click" Margin="0,0,0,58" />
+        <Button Content="Stop" Name="buttonStop" Height="23" VerticalAlignment="Bottom" Click="buttonStop_Click" Margin="0,0,0,29" />
+        <ListBox Name="listBoxScripts" SelectionChanged="listBoxScripts_SelectionChanged" Margin="0,0,0,87">
+            <ListBox.Resources>
+                <DataTemplate DataType="{x:Type local:ScriptLogReader}">
+                    <WrapPanel>
+                        <TextBlock Text="[" Style="{StaticResource ResourceKey=ScriptLogReaderCategoryStyle}"/>
+                        <TextBlock Text="{Binding Path=Category}" Style="{StaticResource ResourceKey=ScriptLogReaderCategoryStyle}" />
+                        <TextBlock Text="] " Style="{StaticResource ResourceKey=ScriptLogReaderCategoryStyle}"/>
+                        <TextBlock Text="{Binding Path=Name}" Style="{StaticResource ResourceKey=ScriptLogReaderHeaderStyle}" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListBox.Resources>
+        </ListBox>
+        <GridSplitter Grid.Column="1" Name="splitter" ResizeBehavior="PreviousAndNext" VerticalAlignment="Stretch" ShowsPreview="True" Width="2" />
+    </Grid>
+</UserControl>

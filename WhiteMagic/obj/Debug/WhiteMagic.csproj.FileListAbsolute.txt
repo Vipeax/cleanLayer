@@ -1,0 +1,5 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\WhiteMagic.pdb

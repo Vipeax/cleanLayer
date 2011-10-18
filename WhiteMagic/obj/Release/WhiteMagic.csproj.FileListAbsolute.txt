@@ -1,0 +1,7 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\bin\Release\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\bin\Release\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Release\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Release\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\WhiteMagic.pdb

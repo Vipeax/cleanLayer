@@ -1,0 +1,22 @@
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\cleanCore.dll
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\cleanCore.pdb
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\cleanPattern.dll
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\WhiteMagic.dll
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\cleanPattern.pdb
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\WhiteMagic.pdb
+C:\Users\Michael\Desktop\cleanCore\cleanCore\bin\Debug\WhiteMagic.xml
+C:\Users\Michael\Desktop\cleanCore\cleanCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\cleanCore\cleanCore\obj\Debug\cleanCore.dll
+C:\Users\Michael\Desktop\cleanCore\cleanCore\obj\Debug\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\cleanPattern.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\bin\Debug\WhiteMagic.xml
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.pdb

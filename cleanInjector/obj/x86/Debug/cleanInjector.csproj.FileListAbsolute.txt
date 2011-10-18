@@ -1,0 +1,17 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\bin\Debug\cleanInjector.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\bin\Debug\cleanInjector.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\cleanInjector.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\cleanInjector.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\App.g.cs
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector_MarkupCompile.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector_MarkupCompile.lref
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\MainWindow.baml
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector.g.resources
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector.Properties.Resources.resources
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanInjector\obj\x86\Debug\cleanInjector.pdb

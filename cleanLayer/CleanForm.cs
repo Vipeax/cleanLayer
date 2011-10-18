@@ -1,0 +1,287 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
+using cleanCore;
+using cleanLayer.GUI;
+using cleanLayer.Library;
+using cleanLayer.Library.Bots;
+using cleanLayer.Library.Combat;
+using cleanLayer.Library.Scripts;
+
+namespace cleanLayer
+{
+    public partial class CleanForm : Form, ILog
+    {
+        public CleanForm()
+        {
+            InitializeComponent();
+        }
+
+        #region Form globals
+
+        private List<BotBase> _Bots;
+        private List<Brain> _Brains;
+
+        private void GUITimer_Tick(object sender, EventArgs e)
+        {
+            if (!Manager.IsInGame)
+                return;
+
+            if (ScriptManager.ScriptPool.Where(s => s.IsRunning).Contains(SelectedScript))
+            {
+                btnScriptStart.Enabled = false;
+                btnScriptStop.Enabled = true;
+            }
+            else
+            {
+                btnScriptStart.Enabled = true;
+                btnScriptStop.Enabled = false;
+            }
+
+            WoWLocalPlayer me = Manager.LocalPlayer;
+
+            pbHealth.Maximum = (int) me.MaxHealth;
+            pbHealth.Value = (int) me.Health;
+
+            pbPower.Maximum = (int) me.MaxPower;
+            pbPower.Value = (int) me.Power;
+        }
+
+        private void SetupBrains()
+        {
+            if (_Brains == null)
+                _Brains = new List<Brain>();
+            _Brains.Clear();
+            Assembly asm = Assembly.GetExecutingAssembly();
+            foreach (Type t in asm.GetTypes())
+            {
+                if (t.IsSubclassOf(typeof (Brain)))
+                {
+                    var b = (Brain) Activator.CreateInstance(t);
+                    _Brains.Add(b);
+                }
+            }
+            Log.WriteLine("Loaded {0} brains.", _Brains.Count);
+            cbBrains.DataSource = GetBrainsForMyClass();
+        }
+
+        private List<Brain> GetBrainsForMyClass()
+        {
+            if (!Manager.IsInGame)
+                return _Brains;
+            return _Brains.Where(b => b.Class == Manager.LocalPlayer.Class).ToList();
+        }
+
+        private void SetupBots()
+        {
+            if (_Bots == null)
+                _Bots = new List<BotBase>();
+            _Bots.Clear();
+            Assembly asm = Assembly.GetExecutingAssembly();
+            foreach (Type t in asm.GetTypes())
+            {
+                if (t.IsSubclassOf(typeof (BotBase)))
+                {
+                    var b = (BotBase) Activator.CreateInstance(t);
+                    _Bots.Add(b);
+                }
+            }
+            Log.WriteLine("Loaded {0} bots.", _Bots.Count);
+            cbBots.DataSource = _Bots;
+        }
+
+        private void SetupScripts()
+        {
+            lstScripts.DataSource = ScriptManager.ScriptPool.ToList();
+            Log.WriteLine("Loaded {0} scripts.", ScriptManager.ScriptPool.Count);
+        }
+
+        private void CleanForm_Load(object sender, EventArgs e)
+        {
+            Log.AddReader(this);
+            Log.WriteLine("cleanLayer loaded");
+
+            SetupBots();
+            SetupBrains();
+            SetupScripts();
+            //foreach (Script script in ScriptManager.ScriptPool)
+            //{
+            //    lstScripts.Items.Add(script);
+            //}
+
+            lstLocations.DataSource = Locations.Keys.ToList();
+        }
+
+        #endregion
+
+        #region Main tab
+
+        private void cbBots_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Bot.Initialize((BotBase) cbBots.SelectedItem);
+            btnBotSettings.Enabled = Bot.CurrentBot.BotForm != null;
+            btnBotStart.Enabled = Bot.CurrentBot != null && Combat.Brain != null;
+        }
+
+        private void btnBotSettings_Click(object sender, EventArgs e)
+        {
+            if (Bot.CurrentBot == null)
+            {
+                Log.WriteLine("You haven't selected any bots");
+                return;
+            }
+
+            if (Bot.CurrentBot.BotForm == null)
+            {
+                Log.WriteLine("This bot doesn't have any settings");
+                return;
+            }
+
+            Bot.CurrentBot.BotForm.Show();
+        }
+
+        private void cbBrains_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Combat.Initialize((Brain) cbBrains.SelectedItem);
+            btnBotStart.Enabled = Bot.CurrentBot != null && Combat.Brain != null;
+        }
+
+        private void btnBotStart_Click(object sender, EventArgs e)
+        {
+            if (Bot.CurrentBot == null)
+                return;
+
+            if (Bot.Start())
+            {
+                btnBotStart.Enabled = false;
+                btnBotStop.Enabled = true;
+
+                cbBots.Enabled = false;
+                btnBotSettings.Enabled = false;
+                cbBrains.Enabled = false;
+            }
+        }
+
+        private void btnBotStop_Click(object sender, EventArgs e)
+        {
+            if (Bot.CurrentBot == null)
+                return;
+            Bot.CurrentBot.Stop();
+            btnBotStart.Enabled = true;
+            btnBotStop.Enabled = false;
+            cbBots.Enabled = true;
+            btnBotSettings.Enabled = true;
+            cbBrains.Enabled = true;
+        }
+
+        #endregion
+
+        #region Debug tab
+
+        private void btnSpellDump_Click(object sender, EventArgs e)
+        {
+            List<WoWSpell> spells = WoWSpell.GetAllSpells();
+            foreach (WoWSpell spell in spells)
+                Log.WriteLine("#{0} = {1}", spell.Id, spell.Name);
+        }
+
+        private void btnExecuteLua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbLua.Text))
+                return;
+
+            Program.OnFrameOnce += delegate
+            {
+                Log.WriteLine(tbLua.Text);
+                List<string> ret = WoWScript.Execute(tbLua.Text);
+                for (int i = 0; i < ret.Count; i++)
+                {
+                    Log.WriteLine("\t[{0}] = \"{1}\"", i, ret[i]);
+                }
+            };
+        }
+
+        #endregion
+
+        #region Scripts tab
+
+        private Script SelectedScript;
+
+        private void btnScriptStart_Click(object sender, EventArgs e)
+        {
+            if (SelectedScript == null)
+                return;
+
+            SelectedScript.Start();
+        }
+
+        private void btnScriptStop_Click(object sender, EventArgs e)
+        {
+            if (SelectedScript == null)
+                return;
+
+            SelectedScript.Stop();
+        }
+
+        private void lstScripts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Script script = ScriptManager.ScriptPool.Where(s => s == lstScripts.SelectedItem).First();
+            if (script == null)
+                return;
+
+            SelectedScript = script;
+        }
+
+        #endregion
+
+        #region Locations tab
+
+        private readonly Dictionary<string, Location> Locations = new Dictionary<string, Location>
+        {
+            {
+                "Orgrimmar",
+                new Location(1397.2f, -4367.8f, 25.3f)
+                },
+            {
+                "Stormwind",
+                new Location(-8957.4f, 517.3f, 96.3f)
+                },
+            {
+                "Crossroads",
+                new Location(-448.6f, -2641.4f, 95.5f)
+                },
+        };
+
+        private void btnPathTo_Click(object sender, EventArgs e)
+        {
+            Location target;
+            Locations.TryGetValue((string) lstLocations.SelectedItem, out target);
+            if (target == null)
+                return;
+
+            Mover.PathTo(target);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GUIThread.Initialize();
+        }
+
+        #endregion
+
+        #region ILog interface
+
+        public void WriteLine(string entry)
+        {
+            rbLogBox.Invoke((Action) (() =>
+                                          {
+                                              rbLogBox.AppendText(entry + Environment.NewLine);
+                                              rbLogBox.ScrollToCaret();
+                                          }));
+        }
+
+        #endregion
+    }
+}

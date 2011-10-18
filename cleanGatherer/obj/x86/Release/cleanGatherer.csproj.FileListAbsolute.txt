@@ -1,0 +1,17 @@
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanGatherer.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanGatherer.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanCore.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\WhiteMagic.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanPattern.dll
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanCore.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\WhiteMagic.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\bin\Release\cleanPattern.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\cleanGatherer.Gatherer.resources
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\cleanGatherer.Properties.Resources.resources
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\cleanGatherer.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Release\cleanGatherer.pdb
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanGatherer.exe
+C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\cleanGatherer.pdb
