@@ -1,9 +1,27 @@
-﻿Build started 18.10.2011 16:54:18.
-     1>Project "C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\CLRHost.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\CLRHost.lastbuildstate".
-     1>Done Building Project "C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\CLRHost.vcxproj" (clean target(s)).
+﻿Build started 21.10.2011 18:33:25.
+     1>Project "C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\CLRHost.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\CLRHost.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D CLRHOST_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CLRHost.dll.embed.manifest.res" Debug\CLRHost_manifest.rc 
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Build\CLRHost.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CLRHost.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Projects\Developement\World of Warcraft\cleanCore\Build\CLRHost.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Build\CLRHost.lib" /MACHINE:X86 /DLL Debug\CLRHost.dll.embed.manifest.res
+         Debug\dllmain.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\CLRHost.dll.embed.manifest" /manifest Debug\CLRHost.dll.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\CLRHost.dll.embed.manifest.res" Debug\CLRHost_manifest.rc 
+       LinkEmbedManifest:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Build\CLRHost.dll" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\CLRHost.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Projects\Developement\World of Warcraft\cleanCore\Build\CLRHost.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Build\CLRHost.lib" /MACHINE:X86 /DLL Debug\CLRHost.dll.embed.manifest.res
+         Debug\dllmain.obj
+         CLRHost.vcxproj -> C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\..\Build\CLRHost.dll
+       FinalizeBuildStatus:
+         Deleting file "Debug\CLRHost.unsuccessfulbuild".
+         Touching "Debug\CLRHost.lastbuildstate".
+     1>Done Building Project "C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\CLRHost.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.11
+Time Elapsed 00:00:06.92

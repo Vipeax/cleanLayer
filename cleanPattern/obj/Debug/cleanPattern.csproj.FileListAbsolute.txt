@@ -8,3 +8,8 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\cleanPattern.dll
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\cleanPattern.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanPattern.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanPattern.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\cleanPattern.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanPattern\obj\Debug\cleanPattern.pdb

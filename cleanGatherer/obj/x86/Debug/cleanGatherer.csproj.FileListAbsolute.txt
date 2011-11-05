@@ -16,3 +16,12 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\clean
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.exe
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanGatherer.exe
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanGatherer.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.Gatherer.resources
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.Properties.Resources.resources
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.exe
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanGatherer\obj\x86\Debug\cleanGatherer.pdb

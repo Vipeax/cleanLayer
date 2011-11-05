@@ -15,3 +15,8 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\DomainManager.dll
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\DomainManager.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\DomainManager.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\DomainManager.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\DomainManager.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Debug\DomainManager.pdb

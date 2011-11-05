@@ -21,9 +21,6 @@ namespace cleanLayer
 
         #region Form globals
 
-        private List<BotBase> _Bots;
-        private List<Brain> _Brains;
-
         private void GUITimer_Tick(object sender, EventArgs e)
         {
             if (!Manager.IsInGame)
@@ -51,45 +48,15 @@ namespace cleanLayer
 
         private void SetupBrains()
         {
-            if (_Brains == null)
-                _Brains = new List<Brain>();
-            _Brains.Clear();
-            Assembly asm = Assembly.GetExecutingAssembly();
-            foreach (Type t in asm.GetTypes())
-            {
-                if (t.IsSubclassOf(typeof (Brain)))
-                {
-                    var b = (Brain) Activator.CreateInstance(t);
-                    _Brains.Add(b);
-                }
-            }
-            Log.WriteLine("Loaded {0} brains.", _Brains.Count);
-            cbBrains.DataSource = GetBrainsForMyClass();
+            WoWBrains.Initialize();
+            cbBrains.DataSource = WoWBrains.BrainsForClass(Manager.LocalPlayer.Class);
+            Log.WriteLine("Loaded {0} brains.", WoWBrains.BrainPool.Count);
         }
-
-        private List<Brain> GetBrainsForMyClass()
-        {
-            if (!Manager.IsInGame)
-                return _Brains;
-            return _Brains.Where(b => b.Class == Manager.LocalPlayer.Class).ToList();
-        }
-
         private void SetupBots()
         {
-            if (_Bots == null)
-                _Bots = new List<BotBase>();
-            _Bots.Clear();
-            Assembly asm = Assembly.GetExecutingAssembly();
-            foreach (Type t in asm.GetTypes())
-            {
-                if (t.IsSubclassOf(typeof (BotBase)))
-                {
-                    var b = (BotBase) Activator.CreateInstance(t);
-                    _Bots.Add(b);
-                }
-            }
-            Log.WriteLine("Loaded {0} bots.", _Bots.Count);
-            cbBots.DataSource = _Bots;
+            WoWBots.Initialize();
+            cbBots.DataSource = WoWBots.BotPool;
+            Log.WriteLine("Loaded {0} brains.", WoWBots.BotPool.Count);
         }
 
         private void SetupScripts()

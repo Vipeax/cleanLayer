@@ -3,3 +3,8 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\BaseA
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\bin\Debug\BaseAdresser.pdb
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\obj\x86\Debug\BaseAdresser.exe
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\obj\x86\Debug\BaseAdresser.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\bin\Debug\BaseAdresser.exe
+C:\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\bin\Debug\BaseAdresser.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\obj\x86\Debug\BaseAdresser.exe
+C:\Projects\Developement\World of Warcraft\cleanCore\BaseAdresser\obj\x86\Debug\BaseAdresser.pdb

@@ -20,3 +20,8 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.dll
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\cleanCore\obj\Debug\cleanCore.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanCore.dll
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\cleanCore.pdb
