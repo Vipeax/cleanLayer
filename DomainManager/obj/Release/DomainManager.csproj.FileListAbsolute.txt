@@ -1,7 +1,0 @@
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\Build\DomainManager.dll
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\Build\DomainManager.pdb
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Release\DomainManager.dll
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\DomainManager\obj\Release\DomainManager.pdb
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\DomainManager.dll
-C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build\Release\DomainManager.pdb

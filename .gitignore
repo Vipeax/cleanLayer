@@ -1,3 +1,7 @@
 Build/
 *.suo
 *.sdf
+*/bin
+*/obj
+*/Debug
+*/Release
