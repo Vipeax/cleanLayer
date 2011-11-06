@@ -71,6 +71,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bots\CombatBot.cs" />
     <Compile Include="Bots\GBStates\GBCombat.cs" />
     <Compile Include="Bots\GBStates\GBGoto.cs" />
     <Compile Include="Bots\GBStates\GBLoot.cs" />
