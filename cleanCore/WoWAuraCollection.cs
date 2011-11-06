@@ -14,9 +14,7 @@ namespace cleanCore
         {
             this.Unit = unit;
             this.Auras = new Dictionary<IntPtr, WoWAura>();
-        }
-
-        
+        }        
 
         internal void Update()
         {
@@ -44,7 +42,6 @@ namespace cleanCore
                         Auras.Add(auraPointer, new WoWAura(auraPointer));
                 }
             }
-
             Auras.Where(a => !a.Value.IsValid).ToList().ForEach(a => Auras.Remove(a.Key));
         }
 

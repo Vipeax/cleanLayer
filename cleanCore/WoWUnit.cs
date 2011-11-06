@@ -17,12 +17,12 @@ namespace cleanCore
         private static UnitReactionDelegate _unitReaction;
 
         [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
-        private delegate int UnitThreatinfo(IntPtr pThis, IntPtr guid, ref IntPtr threatStatus, ref IntPtr threatPct, ref IntPtr rawPct, ref int threatValue);
-        private static UnitThreatinfo _unitThreatInfo;
+        private delegate int UnitThreatInfoDelegate(IntPtr pThis, IntPtr guid, ref IntPtr threatStatus, ref IntPtr threatPct, ref IntPtr rawPct, ref int threatValue);
+        private static UnitThreatInfoDelegate _unitThreatInfo;
 
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        private delegate int GetComboPointsDelegate(ulong guid, int unk = 0);
-        private static GetComboPointsDelegate _getComboPoints;
+        [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
+        private delegate int CreatureTypeDelegate(IntPtr thisObj);
+        private static CreatureTypeDelegate _creatureType;
 
         public WoWUnit(IntPtr pointer)
             : base(pointer)
@@ -441,13 +441,33 @@ namespace cleanCore
             }
         }
 
+        public CreatureType CreatureType
+        {
+            get
+            {
+                if (_creatureType == null)
+                    _creatureType = Helper.Magic.RegisterDelegate<CreatureTypeDelegate>(Helper.Rebase(Offsets.CreatureType));
+                return (CreatureType)_creatureType(Pointer);
+            }
+        }
+
+        public bool IsTotem
+        {
+            get { return CreatureType == CreatureType.Totem; }
+        }
+
+        public ulong SummonedBy
+        {
+            get { return GetDescriptor<ulong>((int)UnitField.UNIT_FIELD_SUMMONEDBY); }
+        }
+
         public int CalculateThreat
         {
             get
             {
                 if (_unitThreatInfo == null)
                 {
-                    _unitThreatInfo = Helper.Magic.RegisterDelegate<UnitThreatinfo>(Offsets.CalculateThreat);
+                    _unitThreatInfo = Helper.Magic.RegisterDelegate<UnitThreatInfoDelegate>(Offsets.CalculateThreat);
                 }
 
                 IntPtr threatStatus = new IntPtr();

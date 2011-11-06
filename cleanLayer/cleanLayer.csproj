@@ -86,8 +86,9 @@
     <Compile Include="Bots\MBStates\MBLoot.cs" />
     <Compile Include="Bots\MBStates\MBStopFollow.cs" />
     <Compile Include="Bots\Multiboxer.cs" />
+    <Compile Include="Brains\Druid\FeralDruidBrain.cs" />
     <Compile Include="Brains\Mage\LowbieMage.cs" />
-    <Compile Include="Brains\Shaman\LowbieShaman.cs" />
+    <Compile Include="Brains\Shaman\ElementalShamanBrain.cs" />
     <Compile Include="GUI\GUIThread.cs" />
     <Compile Include="GUI\IGUIPage.cs" />
     <Compile Include="GUI\MainWindow.xaml.cs">

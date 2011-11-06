@@ -53,13 +53,15 @@ namespace cleanCore
 
         public static uint ClientDB_GetRow;
 
-        public static uint WorldFrame;
+        public static uint WorldFrame; // verify these 3 patterns due to crash in the Drawing script
         public static uint ActiveCamera;
         public static uint AspectRatio;
 
+        // TODO: Make patterns
         public static uint
             SpellCount = 0xAF547C,
             SpellBook = 0xAF5480,
+            CreatureType = 0x1AF330,
             CastingId = 0xA34,
             ChanneledCastingId = 0xA48,
             IsBobbing = 0xD4;
@@ -76,6 +78,7 @@ namespace cleanCore
             public static uint ExpireOffset;
         }
 
+        // TODO: Make patterns
         public static class Aura
         {
             public static uint AuraCount = 0xE90;

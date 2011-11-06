@@ -1,6 +1,7 @@
 Build/
 *.suo
 *.sdf
+*.opensdf
 */bin
 */obj
 */Debug

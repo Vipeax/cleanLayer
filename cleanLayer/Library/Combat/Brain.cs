@@ -18,7 +18,6 @@ namespace cleanLayer.Library.Combat
             Events.Register("PLAYER_REGEN_ENABLED", HandleCombatEvents);
         }
 
-        private bool MovingToTarget = false;
         private List<ActionBase> BrainActions;
 
         private void HandleCombatEvents(string ev, List<string> args)
@@ -97,11 +96,10 @@ namespace cleanLayer.Library.Combat
                 if (action is HarmfulSpellAction && HarmfulTarget.IsValid)
                 {
                     var a = action as HarmfulSpellAction;
-                    if (Manager.LocalPlayer.Location.DistanceTo(HarmfulTarget.Location) > a.Range)
+                    if (HarmfulTarget.Distance > a.Range)
                     {
-                        if (Manager.LocalPlayer.IsClickMoving && MovingToTarget)
+                        if (Manager.LocalPlayer.IsClickMoving)
                             Sleep(200);
-                        MovingToTarget = true;
                         Manager.LocalPlayer.ClickToMove(HarmfulTarget.Location);
                         Sleep(200);
                     }
@@ -110,17 +108,14 @@ namespace cleanLayer.Library.Combat
                 else if (action is HelpfulSpellAction && HelpfulTarget.IsValid)
                 {
                     var a = action as HelpfulSpellAction;
-                    if (Manager.LocalPlayer.Location.DistanceTo(HelpfulTarget.Location) > a.Range)
+                    if (HarmfulTarget.Distance > a.Range)
                     {
-                        if (Manager.LocalPlayer.IsClickMoving && MovingToTarget)
+                        if (Manager.LocalPlayer.IsClickMoving)
                             Sleep(200);
-                        MovingToTarget = true;
                         Manager.LocalPlayer.ClickToMove(HelpfulTarget.Location);
                         Sleep(200);
                     }
                 }
-
-                MovingToTarget = false;
 
                 if (Manager.LocalPlayer.IsClickMoving)
                     Manager.LocalPlayer.StopCTM();                

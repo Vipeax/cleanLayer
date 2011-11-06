@@ -74,6 +74,11 @@ namespace cleanCore
             get { return (IsValid ? Helper.Magic.Read<ulong>((IntPtr)Entry.CreatorGuid) : 0ul); }
         }
 
+        public bool IsMine
+        {
+            get { return CasterGuid == Manager.LocalPlayer.Guid; }
+        }
+
         public byte Flags
         {
             get { return (IsValid ? Entry.Flags : (byte)0); }
