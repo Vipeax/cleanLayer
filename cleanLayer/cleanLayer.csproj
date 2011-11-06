@@ -80,6 +80,12 @@
     <Compile Include="Bots\GBStates\GBReleaseCorpse.cs" />
     <Compile Include="Bots\GBStates\GBPatrol.cs" />
     <Compile Include="Bots\GBStates\GBRetrieveCorpse.cs" />
+    <Compile Include="Bots\MBStates\MBCombat.cs" />
+    <Compile Include="Bots\MBStates\MBFollow.cs" />
+    <Compile Include="Bots\MBStates\MBIdle.cs" />
+    <Compile Include="Bots\MBStates\MBLoot.cs" />
+    <Compile Include="Bots\MBStates\MBStopFollow.cs" />
+    <Compile Include="Bots\Multiboxer.cs" />
     <Compile Include="Brains\Mage\LowbieMage.cs" />
     <Compile Include="Brains\Shaman\LowbieShaman.cs" />
     <Compile Include="GUI\GUIThread.cs" />
@@ -138,6 +144,7 @@
     <Compile Include="Scripts\DungeonScript.cs" />
     <Compile Include="Scripts\FishingScript.cs" />
     <Compile Include="Scripts\GuildRecruitScript.cs" />
+    <Compile Include="Scripts\MultiboxScript.cs" />
     <Compile Include="Scripts\TestScript.cs" />
     <Compile Include="Library\Scripts\ScriptThread.cs" />
     <Compile Include="Library\Scripts\SleepException.cs" />

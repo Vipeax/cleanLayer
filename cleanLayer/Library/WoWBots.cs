@@ -23,8 +23,7 @@ namespace cleanLayer.Library
                     var b = (BotBase)Activator.CreateInstance(t);
                     BotPool.Add(b);
                 }
-            }
-            
+            }            
         }
     }
 }

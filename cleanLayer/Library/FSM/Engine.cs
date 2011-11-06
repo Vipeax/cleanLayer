@@ -16,7 +16,6 @@ namespace cleanLayer.Library.FSM
         {
             TimeBetweenPulses = timeBetweenPulses; // Defaults to 333 = 3 pulses every second
             States = new List<State>(); // Instantiate a new list of states
-            States.Sort(); // Sort the list by priority
         }
 
         //public void LoadInternalStates(Type sType)

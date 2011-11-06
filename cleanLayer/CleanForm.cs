@@ -135,11 +135,11 @@ namespace cleanLayer
         {
             if (Bot.CurrentBot == null)
                 return;
-            Bot.CurrentBot.Stop();
+            Bot.Stop();
             btnBotStart.Enabled = true;
             btnBotStop.Enabled = false;
             cbBots.Enabled = true;
-            btnBotSettings.Enabled = true;
+            btnBotSettings.Enabled = Bot.CurrentBot.BotForm != null;
             cbBrains.Enabled = true;
         }
 

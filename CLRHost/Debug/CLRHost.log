@@ -1,4 +1,4 @@
-﻿Build started 21.10.2011 18:33:25.
+﻿Build started 06.11.2011 16:16:02.
      1>Project "C:\Projects\Developement\World of Warcraft\cleanCore\CLRHost\CLRHost.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\CLRHost.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -24,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.92
+Time Elapsed 00:00:04.19

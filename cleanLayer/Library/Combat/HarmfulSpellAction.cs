@@ -30,7 +30,6 @@ namespace cleanLayer.Library.Combat
             {
                 return base.IsWanted
                     && Brain.HarmfulTarget.IsValid
-                    && Brain.HarmfulTarget.Distance < Range
                     && Brain.HarmfulTarget.InLoS;
             }
         }

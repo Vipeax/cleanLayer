@@ -52,6 +52,7 @@
     <Compile Include="AuctionHouse\WoWAuction.cs" />
     <Compile Include="D3D\Camera.cs" />
     <Compile Include="D3D\Matrix3.cs" />
+    <Compile Include="UI\Trainer.cs" />
     <Compile Include="WoWAuraCollection.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="D3D\Direct3DAPI.cs" />

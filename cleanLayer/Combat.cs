@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using cleanCore;
 using cleanLayer.Brains;
 using cleanLayer.Library.Combat;
@@ -10,7 +11,7 @@ namespace cleanLayer
         static Combat()
         {
             IsRunning = false;
-        }
+        }        
 
         public static bool IsRunning
         {

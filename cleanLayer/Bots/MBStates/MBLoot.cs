@@ -6,19 +6,20 @@ using cleanCore;
 using cleanLayer.Library;
 using cleanLayer.Library.FSM;
 
-namespace cleanLayer.Bots.GBStates
+namespace cleanLayer.Bots.MBStates
 {
-    public class GBLoot : State
+    public class MBLoot : State
     {
-        private Grindbot _parent;
-        public GBLoot(Grindbot parent)
+        private Multiboxer _parent;
+        private bool Moving = false;
+        public MBLoot(Multiboxer parent)
         {
             _parent = parent;
         }
 
         public override int Priority
         {
-            get { return 60; }
+            get { return 70; }
         }
 
         public override bool NeedToRun
@@ -35,17 +36,17 @@ namespace cleanLayer.Bots.GBStates
             {
                 if (CurrentLootable.Distance > 4f)
                 {
-                    if (Mover.Status != MovementStatus.Moving || Mover.Destination != CurrentLootable.Location)
+                    if (!Moving || !Manager.LocalPlayer.IsClickMoving)
                     {
+                        Moving = true;
                         _parent.Print("Moving to loot {0}", CurrentLootable.Name);
-                        if (!Mover.PathTo(CurrentLootable.Location))
-                            _parent.Blacklisted.Add(CurrentLootable.Guid);
-
+                        Mover.MoveTo(CurrentLootable.Location);
                     }
                     _parent.FSM.DelayNextPulse(500);
                 }
                 else
                 {
+                    Moving = false;
                     CurrentLootable.Interact();
                     if (Manager.LocalPlayer.IsLooting)
                     {
@@ -70,7 +71,7 @@ namespace cleanLayer.Bots.GBStates
                     Manager.Objects
                     .Where(x => x.IsValid && x.IsUnit)
                     .Select(x => x as WoWUnit)
-                    .Where(x => !_parent.Blacklisted.Contains(x.Guid) && x.IsLootable)
+                    .Where(x => x.IsLootable)
                     .OrderBy(x => x.Distance)
                     .ToList();
             }

@@ -402,4 +402,57 @@ namespace cleanCore
 
         None = 0xD
     }
+
+    public enum ItemQuality : int
+    {
+        Poor = 0,   // gray
+        Common,     // white
+        Uncommon,   // green
+        Rare,       // blue
+        Epic,       // purple
+        Legendary,  // orange
+        Artifact,   // golden yellow
+        Heirloom,   // light yellow
+    }
+
+    public enum PowerType : int
+    {
+        Mana = 0,
+        Rage,
+        Focus,
+        Energy,
+        Happiness,
+        Runes,
+        RunicPower,
+        SoulShards,
+        Eclipse,
+        HolyPower,
+    }
+
+    public enum InventorySlots : int
+    {
+        Ammo = 0,
+        Head,
+        Neck,
+        Shoulder,
+        Body,
+        Chest,
+        Waist,
+        Legs,
+        Feet,
+        Wrist,
+        Hand,
+        Finger1,
+        Finger2,
+        Trinket1,
+        Trinket2,
+        Back,
+        MainHand,
+        OffHand,
+        Ranged,
+        Tabard,
+
+        FIRST_EQUIPPED = InventorySlots.Head,
+        LAST_EQUIPPED = InventorySlots.Tabard,
+    }
 }

@@ -141,7 +141,6 @@ namespace cleanCore
             get { return (PlayerFlags & (1 << 4)) > 0; }
         }
 
-
         public static implicit operator IntPtr(WoWPlayer self)
         {
             return self != null ? self.Pointer : IntPtr.Zero;

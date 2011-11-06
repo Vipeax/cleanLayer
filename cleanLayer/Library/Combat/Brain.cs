@@ -14,9 +14,25 @@ namespace cleanLayer.Library.Combat
         public Brain()
         {
             BrainActions = new List<ActionBase>();
+            Events.Register("PLAYER_REGEN_DISABLED", HandleCombatEvents);
+            Events.Register("PLAYER_REGEN_ENABLED", HandleCombatEvents);
         }
 
+        private bool MovingToTarget = false;
         private List<ActionBase> BrainActions;
+
+        private void HandleCombatEvents(string ev, List<string> args)
+        {
+            switch (ev)
+            {
+                case "PLAYER_REGEN_DISABLED":
+                    OnEnterCombat();
+                    break;
+                case "PLAYER_REGEN_ENABLED":
+                    OnExitCombat();
+                    break;
+            }
+        }
 
         public void SelectTargets()
         {
@@ -72,16 +88,42 @@ namespace cleanLayer.Library.Combat
             try
             {
                 SelectTargets();
-                if (HarmfulTarget.IsValid)
-                {
-                    HarmfulTarget.Face();
-                    HarmfulTarget.Select();
-                }
+                
                 var action = (from a in BrainActions
                               where a.IsWanted && a.IsReady
                               orderby a.Priority descending
                               select a).FirstOrDefault();
 
+                if (action is HarmfulSpellAction && HarmfulTarget.IsValid)
+                {
+                    var a = action as HarmfulSpellAction;
+                    if (Manager.LocalPlayer.Location.DistanceTo(HarmfulTarget.Location) > a.Range)
+                    {
+                        if (Manager.LocalPlayer.IsClickMoving && MovingToTarget)
+                            Sleep(200);
+                        MovingToTarget = true;
+                        Manager.LocalPlayer.ClickToMove(HarmfulTarget.Location);
+                        Sleep(200);
+                    }
+                }
+
+                else if (action is HelpfulSpellAction && HelpfulTarget.IsValid)
+                {
+                    var a = action as HelpfulSpellAction;
+                    if (Manager.LocalPlayer.Location.DistanceTo(HelpfulTarget.Location) > a.Range)
+                    {
+                        if (Manager.LocalPlayer.IsClickMoving && MovingToTarget)
+                            Sleep(200);
+                        MovingToTarget = true;
+                        Manager.LocalPlayer.ClickToMove(HelpfulTarget.Location);
+                        Sleep(200);
+                    }
+                }
+
+                MovingToTarget = false;
+
+                if (Manager.LocalPlayer.IsClickMoving)
+                    Manager.LocalPlayer.StopCTM();                
 
                 OnBeforeAction(action);
                 if (action != null)
@@ -134,6 +176,14 @@ namespace cleanLayer.Library.Combat
         protected abstract void OnAfterAction(ActionBase action);
 
         protected abstract HarmfulSpellAction PullSpell { get; }
+
+        public virtual bool NeedRest { get { return false; } }
+
+        public virtual void Rest() { }
+
+        public virtual void OnEnterCombat() { }
+
+        public virtual void OnExitCombat() { }
 
         public IEnumerable<WoWUnit> HarmfulTargets
         {

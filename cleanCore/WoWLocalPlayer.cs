@@ -97,6 +97,11 @@ namespace cleanCore
             }
         }
 
+        public int ComboPoints
+        {
+            get { return Helper.Magic.Read<int>(Helper.Rebase(0xA98D25)); }
+        }
+
         #region Movement
 
         public void Ascend()

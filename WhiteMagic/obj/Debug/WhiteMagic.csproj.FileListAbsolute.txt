@@ -3,6 +3,7 @@ C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\Build
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\WhiteMagic.dll
 C:\Users\Michael\Desktop\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\WhiteMagic.pdb
+C:\Projects\Developement\World of Warcraft\cleanCore\Build\WhiteMagic.XML
 C:\Projects\Developement\World of Warcraft\cleanCore\Build\WhiteMagic.dll
 C:\Projects\Developement\World of Warcraft\cleanCore\Build\WhiteMagic.pdb
 C:\Projects\Developement\World of Warcraft\cleanCore\WhiteMagic\obj\Debug\ResolveAssemblyReference.cache

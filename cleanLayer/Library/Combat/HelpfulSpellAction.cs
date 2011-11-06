@@ -26,7 +26,6 @@ namespace cleanLayer.Library.Combat
             {
                 return base.IsWanted
                     && Brain.HelpfulTarget.IsValid
-                    && Brain.HelpfulTarget.Distance < Range
                     && Brain.HelpfulTarget.InLoS;
             }
         }

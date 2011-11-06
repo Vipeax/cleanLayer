@@ -24,7 +24,6 @@ namespace cleanLayer.Library
                     BrainPool.Add(b);
                 }
             }
-            Log.WriteLine("Loaded {0} brains.", BrainPool.Count);
         }
 
         public static List<Brain> BrainsForClass(WoWClass wowclass)

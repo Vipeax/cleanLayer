@@ -38,7 +38,7 @@ Credits:
 ==============================================
 I wouldn't have anything other than a OOP health and playername reader if it wasn't for these people:
 
-caytchen
+ caytchen
 ----------------------------------------------
 The author of cleanCore which I extended the framework on. Without him this project wouldn't exists.
 Not to mention the countless times he's been wonderful and helped me with my project.
@@ -47,27 +47,32 @@ Big thanks for help, code and patterns caytchen! My bot would run on waypoints i
 Now I have a navmesh!
 
 
-Apoc
+ TOM_RUS
+----------------------------------------------
+King of reversing, really, helped me a lot on reversing and understanding basic stuff!
+Another person that has been invaluable to this project!
+
+ Apoc
 ----------------------------------------------
 The father of the Memory Editing section. I have probably copied countless pages of code that you released there.
 Thank you Apoc.
 
 
-namreeb
+ namreeb
 ----------------------------------------------
 I thank you for all the information and insight on navmeshes you provided on the forums.
 Your sharing has been invaluable for me on the road to getting a navmesh.
 
 
 
-the loldev team (ultimateparadox, naa, scorpion, beans and garion and MAYBE thunder)
+ the loldev team (ultimateparadox, naa, scorpion, beans and garion and MAYBE thunder)
 ----------------------------------------------
 You are in not very affiliated with this bot, but you all introduced me to the coding side of botting.
 Big thanks to you all for all the great moments with NaaBot, MMOTotus and so on.
 I'd like to thank the #loldev community for the good times we've had.
 
 
-Hamut & Mercury
+ Hamut & Mercury
 ----------------------------------------------
 This one goes especially to Hamut because he's just an awesome person.
 Thanks for all the times you stopped by #Pather for a chat, and of course
