@@ -90,6 +90,7 @@
     <Compile Include="Brains\Druid\FeralDruidBrain.cs" />
     <Compile Include="Brains\Mage\LowbieMage.cs" />
     <Compile Include="Brains\Shaman\ElementalShamanBrain.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="GUI\GUIThread.cs" />
     <Compile Include="GUI\IGUIPage.cs" />
     <Compile Include="GUI\MainWindow.xaml.cs">
@@ -156,7 +157,7 @@
     <Compile Include="CleanForm.Designer.cs">
       <DependentUpon>CleanForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Combat.cs" />
+    <Compile Include="Library\Combat.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />

@@ -33,6 +33,8 @@ namespace cleanLayer.Bots.MBStates
                 if (Manager.LocalPlayer.IsClickMoving)
                     return;
                 Manager.LocalPlayer.ClickToMove(_parent.Leader.Location);
+                _parent.FSM.DelayNextPulse(200);
+                return;
             }
             _parent.Leader.Select();
             WoWScript.ExecuteNoResults("FollowUnit(\"target\")");
