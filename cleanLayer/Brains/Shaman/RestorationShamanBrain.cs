@@ -2,7 +2,7 @@
 using cleanCore;
 using cleanLayer.Library.Combat;
 
-namespace cleanLayer.Brains
+namespace cleanLayer.Brains.Shaman
 {
     public class RestorationShamanBrain : Brain
     {

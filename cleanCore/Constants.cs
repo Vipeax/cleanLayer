@@ -496,5 +496,52 @@ namespace cleanCore
         Totem,
         NonCombatPet,
         GasCloud,
-    }       
+    }
+
+    public enum MultiCastSlot
+    {
+        ElementsFire = 133,
+        ElementsEarth,
+        ElementsWater,
+        ElementsAir,
+
+        AncestorsFire,
+        AncestorsEarth,
+        AncestorsWater,
+        AncestorsAir,
+
+        SpiritsFire,
+        SpiritsEarth,
+        SpiritsWater,
+        SpiritsAir
+    }
+
+    public enum eWoWTotem : int
+    {
+        // Earth Totems
+        EarthElemental = 2062,
+        Earthbind = 2484,
+        Stoneclaw = 5730,
+        Stoneskin = 8071,
+        StrengthOfEarth = 8075,
+        Tremor = 8143,
+
+        // Fire Totems
+        FireElemental = 2894,
+        Searing = 3599,
+        Magma = 8190,
+        Flametongue = 8227,
+
+        // Water Totems
+        HealingStream = 5394,
+        ManaSpring = 5675,
+        ManaTide = 16190,
+        TranquilMind = 87718,
+
+        // Air Totems
+        WrathOfAir = 3738,
+        Grounding = 8177,
+        ElementalResistance = 8184,
+        Windfury = 8512,
+    }
 }

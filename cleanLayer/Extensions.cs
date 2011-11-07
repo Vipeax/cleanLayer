@@ -17,7 +17,7 @@ namespace cleanLayer
                 {
                     Log.WriteLine("\t{0} = {1}", p.Name, p.GetValue(o, null));
                 }
-                catch { Log.WriteLine("\t{0} = Unable to dump"); }
+                catch { Log.WriteLine("\t{0} = null?", p.Name); }
             }
         }
     }

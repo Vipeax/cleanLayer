@@ -90,6 +90,7 @@
     <Compile Include="Brains\Druid\FeralDruidBrain.cs" />
     <Compile Include="Brains\Mage\LowbieMage.cs" />
     <Compile Include="Brains\Shaman\ElementalShamanBrain.cs" />
+    <Compile Include="Brains\Shaman\TotemHelper.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="GUI\GUIThread.cs" />
     <Compile Include="GUI\IGUIPage.cs" />

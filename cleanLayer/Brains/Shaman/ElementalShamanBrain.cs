@@ -13,6 +13,7 @@ namespace cleanLayer.Brains.Shaman
 
         public ElementalShamanBrain()
         {
+            AddAction(new Thunderstorm(this, 11));
             AddAction(new EarthShock(this, 10));
             AddAction(new FlameShock(this, 9));
             AddAction(new HarmfulSpellAction(this, 8, "Lava Burst", 25));
@@ -30,7 +31,15 @@ namespace cleanLayer.Brains.Shaman
             get { return "Elemental"; }
         }
 
-        private List<WoWUnit> Totems = new List<WoWUnit>();
+        private bool _totemsSet = false;
+
+        protected void SetTotems()
+        {
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsEarth, eWoWTotem.Stoneskin);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsFire, eWoWTotem.Searing);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsWater, eWoWTotem.HealingStream);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsAir, eWoWTotem.WrathOfAir);
+        }
 
         protected override HarmfulSpellAction PullSpell
         {
@@ -44,8 +53,17 @@ namespace cleanLayer.Brains.Shaman
 
         protected override void OnBeforeAction(ActionBase action)
         {
-            // Refresh our list of totems
-            // TODO: Verify that SummonedBy is the right way to check if totems are ours!
+            if (!_totemsSet)
+            {
+                SetTotems();
+                _totemsSet = true;
+            }
+
+            if (Helper.InCombat && Manager.LocalPlayer.Totems.Count == 0)
+            {
+                if (TotemHelper.CallTotems())
+                    Sleep(Globals.SpellWait);
+            }
 
             // Instant Lava Burst
             if (action is HarmfulSpellAction)
@@ -67,27 +85,22 @@ namespace cleanLayer.Brains.Shaman
         protected override void OnAfterAction(ActionBase action)
         {
             // Remove Totems
-            if (!Helper.InCombat && Manager.LocalPlayer.Totems.Count > 0)
+            if (!Helper.InCombat)
             {
-                var tr = WoWSpell.GetSpell("Totemic Recall");
-                if (tr.IsValid && tr.IsReady)
-                {
-                    Log.WriteLine("Removing totems");
-                    tr.Cast();
+                if (TotemHelper.RecallTotems())
                     Sleep(Globals.SpellWait);
-                }
             }
-            
-            // Thunderstorm
-            if (Manager.LocalPlayer.PowerPercentage < 70)
+        }
+
+        protected class Thunderstorm : HarmfulSpellAction
+        {
+            public Thunderstorm(Brain brain, int priority)
+                : base(brain, priority, "Thunderstorm")
+            { }
+
+            public override bool IsWanted
             {
-                var ts = WoWSpell.GetSpell("Thunderstorm");
-                if (ts.IsValid && ts.IsReady)
-                {
-                    Log.WriteLine("Casting Thunderstorm to regain mana");
-                    ts.Cast();
-                    Sleep(Globals.SpellWait);
-                }
+                get { return base.IsWanted && (Manager.LocalPlayer.PowerPercentage < 70 || Brain.HarmfulTargets.Count(x => x.Distance < 8) > 2); }
             }
         }
 
