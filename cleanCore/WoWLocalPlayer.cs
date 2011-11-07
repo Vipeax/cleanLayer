@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace cleanCore
@@ -105,6 +107,18 @@ namespace cleanCore
         public int Shapeshiftform
         {
             get { return WoWScript.Execute<int>("GetShapeshiftForm()", 0); }
+        }
+
+        public List<WoWTotem> Totems
+        {
+            get
+            {
+                return Manager.Objects
+                    .Where(x => x.IsValid && x.IsUnit)
+                    .Select(x => x as WoWUnit)
+                    .Where(x => x.CreatedBy == Manager.LocalPlayer.Guid && x.IsTotem)
+                    .Select(x => x as WoWTotem).ToList();
+            }
         }
 
         #region Movement

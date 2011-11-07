@@ -84,6 +84,7 @@
     <Compile Include="WoWPlayer.cs" />
     <Compile Include="WoWScript.cs" />
     <Compile Include="WoWSpell.cs" />
+    <Compile Include="WoWTotem.cs" />
     <Compile Include="WoWUnit.cs" />
     <Compile Include="WoWWorld.cs" />
   </ItemGroup>

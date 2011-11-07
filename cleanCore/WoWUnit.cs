@@ -461,6 +461,11 @@ namespace cleanCore
             get { return GetDescriptor<ulong>((int)UnitField.UNIT_FIELD_SUMMONEDBY); }
         }
 
+        public ulong CreatedBy
+        {
+            get { return GetDescriptor<ulong>((int)UnitField.UNIT_FIELD_CREATEDBY); }
+        }
+
         public int CalculateThreat
         {
             get

@@ -71,7 +71,7 @@ namespace cleanLayer.Bots.MBStates
                     Manager.Objects
                     .Where(x => x.IsValid && x.IsUnit)
                     .Select(x => x as WoWUnit)
-                    .Where(x => x.IsLootable)
+                    .Where(x => x.IsLootable && x.Distance < Globals.MaxDistance)
                     .OrderBy(x => x.Distance)
                     .ToList();
             }

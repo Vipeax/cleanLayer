@@ -250,5 +250,20 @@ namespace cleanLayer
         }
 
         #endregion
+
+        private void btnTotems_Click(object sender, EventArgs e)
+        {
+            var allObjects = Manager.Objects;
+            var allTotems = allObjects.Where(x => x.IsValid && x.IsUnit).Select(x => x as WoWUnit).Where(x => x.IsTotem).ToList();
+            var totemsSummoned = allTotems.Where(x => x.SummonedBy == Manager.LocalPlayer.Guid);
+            var totemsCreated = allTotems.Where(x => x.CreatedBy == Manager.LocalPlayer.Guid);
+            Log.WriteLine("Totally {0} totems:", allTotems.Count);
+            foreach (var t in allTotems)
+            {
+                Log.WriteLine("N: {0} - S: {1} - C: {2}", t.Name, t.SummonedBy, t.CreatedBy);
+            }
+            Log.WriteLine("Summoned by me: {0}", totemsSummoned.Count());
+            Log.WriteLine("Created by me: {0}", totemsCreated.Count());
+        }
     }
 }

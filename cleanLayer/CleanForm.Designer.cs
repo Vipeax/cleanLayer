@@ -68,6 +68,7 @@
             this.lstLocations = new System.Windows.Forms.ListBox();
             this.rbLogBox = new System.Windows.Forms.RichTextBox();
             this.GUITimer = new System.Windows.Forms.Timer(this.components);
+            this.btnTotems = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -379,6 +380,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnTotems);
             this.tabPage2.Controls.Add(this.btnSpellDump);
             this.tabPage2.Controls.Add(this.tbLua);
             this.tabPage2.Controls.Add(this.btnExecuteLua);
@@ -477,6 +479,16 @@
             this.GUITimer.Interval = 500;
             this.GUITimer.Tick += new System.EventHandler(this.GUITimer_Tick);
             // 
+            // btnTotems
+            // 
+            this.btnTotems.Location = new System.Drawing.Point(8, 61);
+            this.btnTotems.Name = "btnTotems";
+            this.btnTotems.Size = new System.Drawing.Size(75, 23);
+            this.btnTotems.TabIndex = 12;
+            this.btnTotems.Text = "Totems";
+            this.btnTotems.UseVisualStyleBackColor = true;
+            this.btnTotems.Click += new System.EventHandler(this.btnTotems_Click);
+            // 
             // CleanForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -544,5 +556,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnTotems;
     }
 }

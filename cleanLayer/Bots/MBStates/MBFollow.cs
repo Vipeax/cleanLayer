@@ -28,8 +28,12 @@ namespace cleanLayer.Bots.MBStates
 
         public override void Run()
         {
-            if (Manager.LocalPlayer.Location.DistanceTo(_parent.Leader.Location) > 8)
-                return;
+            if (_parent.Leader.Distance > 8)
+            {
+                if (Manager.LocalPlayer.IsClickMoving)
+                    return;
+                Manager.LocalPlayer.ClickToMove(_parent.Leader.Location);
+            }
             _parent.Leader.Select();
             WoWScript.ExecuteNoResults("FollowUnit(\"target\")");
             _parent.FollowingLeader = true;
