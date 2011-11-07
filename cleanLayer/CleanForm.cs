@@ -52,11 +52,12 @@ namespace cleanLayer
             cbBrains.DataSource = WoWBrains.BrainsForClass(Manager.LocalPlayer.Class);
             Log.WriteLine("Loaded {0} brains.", WoWBrains.BrainPool.Count);
         }
+
         private void SetupBots()
         {
             WoWBots.Initialize();
             cbBots.DataSource = WoWBots.BotPool;
-            Log.WriteLine("Loaded {0} brains.", WoWBots.BotPool.Count);
+            Log.WriteLine("Loaded {0} bots.", WoWBots.BotPool.Count);
         }
 
         private void SetupScripts()
@@ -73,10 +74,6 @@ namespace cleanLayer
             SetupBots();
             SetupBrains();
             SetupScripts();
-            //foreach (Script script in ScriptManager.ScriptPool)
-            //{
-            //    lstScripts.Items.Add(script);
-            //}
 
             lstLocations.DataSource = Locations.Keys.ToList();
         }
@@ -170,6 +167,32 @@ namespace cleanLayer
             };
         }
 
+        private void btnTotems_Click(object sender, EventArgs e)
+        {
+            var allObjects = Manager.Objects;
+            var allTotems = allObjects.Where(x => x.IsValid && x.IsUnit).Select(x => x as WoWUnit).Where(x => x.IsTotem).ToList();
+            var totemsSummoned = allTotems.Where(x => x.SummonedBy == Manager.LocalPlayer.Guid);
+            var totemsCreated = allTotems.Where(x => x.CreatedBy == Manager.LocalPlayer.Guid);
+            Log.WriteLine("Totally {0} totems:", allTotems.Count);
+            foreach (var t in allTotems)
+            {
+                Log.WriteLine("N: {0} - S: {1} - C: {2}", t.Name, t.SummonedBy, t.CreatedBy);
+            }
+            Log.WriteLine("Summoned by me: {0}", totemsSummoned.Count());
+            Log.WriteLine("Created by me: {0}", totemsCreated.Count());
+        }
+
+        private void btnMounts_Click(object sender, EventArgs e)
+        {
+            Program.OnFrameOnce += delegate
+            {
+                var mounts = WoWMounts.GetAllMounts();
+                Log.WriteLine("Dumping {0} mounts", mounts.Count);
+                foreach (var m in mounts)
+                    m.DumpProperties();
+            };
+        }
+
         #endregion
 
         #region Scripts tab
@@ -231,9 +254,28 @@ namespace cleanLayer
             Mover.PathTo(target);
         }
 
+        private void btnMountUp_Click(object sender, EventArgs e)
+        {
+            Program.OnFrameOnce += delegate
+            {
+                var m = WoWMounts.RandomMount();
+                Log.WriteLine("Mounted {0}", m);
+            };
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             GUIThread.Initialize();
+        }
+
+        private void btnShapeshift_Click(object sender, EventArgs e)
+        {
+            Log.WriteLine("Shapeshift Form ID: #{0} - {1}", (int)Manager.LocalPlayer.Shapeshift, Manager.LocalPlayer.Shapeshift.ToString());
+        }
+
+        private void btnDumpMe_Click(object sender, EventArgs e)
+        {
+            Manager.LocalPlayer.DumpProperties();
         }
 
         #endregion
@@ -248,22 +290,6 @@ namespace cleanLayer
                                               rbLogBox.ScrollToCaret();
                                           }));
         }
-
         #endregion
-
-        private void btnTotems_Click(object sender, EventArgs e)
-        {
-            var allObjects = Manager.Objects;
-            var allTotems = allObjects.Where(x => x.IsValid && x.IsUnit).Select(x => x as WoWUnit).Where(x => x.IsTotem).ToList();
-            var totemsSummoned = allTotems.Where(x => x.SummonedBy == Manager.LocalPlayer.Guid);
-            var totemsCreated = allTotems.Where(x => x.CreatedBy == Manager.LocalPlayer.Guid);
-            Log.WriteLine("Totally {0} totems:", allTotems.Count);
-            foreach (var t in allTotems)
-            {
-                Log.WriteLine("N: {0} - S: {1} - C: {2}", t.Name, t.SummonedBy, t.CreatedBy);
-            }
-            Log.WriteLine("Summoned by me: {0}", totemsSummoned.Count());
-            Log.WriteLine("Created by me: {0}", totemsCreated.Count());
-        }
     }
 }

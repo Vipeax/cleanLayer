@@ -10,9 +10,15 @@ namespace cleanLayer
         public static void DumpProperties(this object o)
         {
             var t = o.GetType();
-            Log.WriteLine("Dumping Properties of Object (Type = {0})", t);
+            Log.WriteLine("Dumping Properties of {0} (Type = {1})", t.Name, t);
             foreach (var p in t.GetProperties())
-                Log.WriteLine("    {0} = {1}", p.Name, p.GetValue(o, null));
+            {
+                try
+                {
+                    Log.WriteLine("\t{0} = {1}", p.Name, p.GetValue(o, null));
+                }
+                catch { Log.WriteLine("\t{0} = Unable to dump"); }
+            }
         }
     }
 }

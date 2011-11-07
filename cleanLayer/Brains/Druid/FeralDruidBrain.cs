@@ -35,13 +35,13 @@ namespace cleanLayer.Brains
             if (Leader == null || !Leader.IsValid)
                 Leader = WoWParty.Members.FirstOrDefault() ?? WoWPlayer.Invalid;
 
-            if (action is CatSpellAction && Manager.LocalPlayer.Shapeshiftform != 3)
+            if (action is CatSpellAction && Manager.LocalPlayer.Shapeshift != ShapeshiftForm.Cat)
             {
                 WoWSpell.GetSpell("Cat Form").Cast();
                 Sleep(Globals.SpellWait);
             }
 
-            if (action is BearSpellAction && Manager.LocalPlayer.Shapeshiftform != 1)
+            if (action is BearSpellAction && Manager.LocalPlayer.Shapeshift != ShapeshiftForm.Bear)
             {
                 WoWSpell.GetSpell("Bear Form").Cast();
                 Sleep(Globals.SpellWait);

@@ -104,11 +104,6 @@ namespace cleanCore
             get { return Helper.Magic.Read<int>(Helper.Rebase(0xA98D25)); }
         }
 
-        public int Shapeshiftform
-        {
-            get { return WoWScript.Execute<int>("GetShapeshiftForm()", 0); }
-        }
-
         public List<WoWTotem> Totems
         {
             get

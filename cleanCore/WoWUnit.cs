@@ -24,6 +24,10 @@ namespace cleanCore
         private delegate int CreatureTypeDelegate(IntPtr thisObj);
         private static CreatureTypeDelegate _creatureType;
 
+        [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
+        private delegate int GetShapeshiftFormIdDelegate(IntPtr thisObj);
+        private static GetShapeshiftFormIdDelegate _getShapeshiftFormId;
+
         public WoWUnit(IntPtr pointer)
             : base(pointer)
         {
@@ -171,7 +175,7 @@ namespace cleanCore
 
         public UnitDynamicFlags DynamicFlags
         {
-            get { return (UnitDynamicFlags)GetDescriptor<uint>((int) UnitField.UNIT_DYNAMIC_FLAGS); }
+            get { return (UnitDynamicFlags)GetDescriptor<uint>((int)UnitField.UNIT_DYNAMIC_FLAGS); }
         }
 
         public uint NpcFlags
@@ -448,6 +452,16 @@ namespace cleanCore
                 if (_creatureType == null)
                     _creatureType = Helper.Magic.RegisterDelegate<CreatureTypeDelegate>(Helper.Rebase(Offsets.CreatureType));
                 return (CreatureType)_creatureType(Pointer);
+            }
+        }
+
+        public ShapeshiftForm Shapeshift
+        {
+            get
+            {
+                if (_getShapeshiftFormId == null)
+                    _getShapeshiftFormId = Helper.Magic.RegisterDelegate<GetShapeshiftFormIdDelegate>(Helper.Rebase(Offsets.GetShapeshiftFormId));
+                return (ShapeshiftForm)_getShapeshiftFormId(Pointer);
             }
         }
 

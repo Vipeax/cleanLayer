@@ -79,6 +79,8 @@
     <Compile Include="WoWGameObject.cs" />
     <Compile Include="WoWItem.cs" />
     <Compile Include="WoWLocalPlayer.cs" />
+    <Compile Include="WoWMount.cs" />
+    <Compile Include="WoWMounts.cs" />
     <Compile Include="WoWObject.cs" />
     <Compile Include="WoWParty.cs" />
     <Compile Include="WoWPlayer.cs" />

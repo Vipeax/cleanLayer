@@ -62,6 +62,7 @@ namespace cleanCore
             SpellCount = 0xAF547C,
             SpellBook = 0xAF5480,
             CreatureType = 0x1AF330,
+            GetShapeshiftFormId = 0x1AAA00,
             CastingId = 0xA34,
             ChanneledCastingId = 0xA48,
             IsBobbing = 0xD4;
