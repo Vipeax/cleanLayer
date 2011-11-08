@@ -516,7 +516,7 @@ namespace cleanCore
         SpiritsAir
     }
 
-    public enum eWoWTotem : int
+    public enum Totem : int
     {
         // Earth Totems
         EarthElemental = 2062,
@@ -543,5 +543,12 @@ namespace cleanCore
         Grounding = 8177,
         ElementalResistance = 8184,
         Windfury = 8512,
+    }
+
+    public enum WeaponEnchantments : int
+    {
+        // Shaman
+        Flametongue = 1800,
+
     }
 }

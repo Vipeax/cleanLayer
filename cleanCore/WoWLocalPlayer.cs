@@ -111,8 +111,20 @@ namespace cleanCore
                 return Manager.Objects
                     .Where(x => x.IsValid && x.IsUnit)
                     .Select(x => x as WoWUnit)
-                    .Where(x => x.CreatedBy == Manager.LocalPlayer.Guid && x.IsTotem)
+                    .Where(x => x.CreatedBy == Guid && x.IsTotem)
                     .Select(x => x as WoWTotem).ToList();
+            }
+        }
+
+        public List<WoWItem> Items
+        {
+            get
+            {
+                return Manager.Objects
+                    .Where(x => x.IsValid && x.IsItem)
+                    .Select(x => x as WoWItem)
+                    .Where(x => x.OwnerGuid == Guid)
+                    .ToList();
             }
         }
 

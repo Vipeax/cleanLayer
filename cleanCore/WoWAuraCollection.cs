@@ -18,30 +18,24 @@ namespace cleanCore
 
         internal void Update()
         {
+            if (!Unit.IsValid)
+            {
+                Auras.Clear();
+                return;
+            }
+
             foreach (var oldAura in Auras)
                 oldAura.Value.Invalidate();
 
-            if (Unit.IsValid)
+            for (int i = 0; i < Unit.GetAuraCount; i++)
             {
-                var unitPointer = (uint)Unit.Pointer;
-
-                var auraCount = Helper.Magic.Read<int>(unitPointer + Offsets.Aura.AuraCount);
-                var auraTable = unitPointer + Offsets.Aura.AuraTable;
-                if (auraCount == -1)
-                {
-                    auraCount = Helper.Magic.Read<int>(unitPointer + Offsets.Aura.AuraCountEx);
-                    auraTable = Helper.Magic.Read<uint>(unitPointer + Offsets.Aura.AuraTableEx);
-                }
-
-                for (int i = 0; i < auraCount; i++) // Update internal
-                {
-                    var auraPointer = (IntPtr)(auraTable + i * Offsets.Aura.AuraSize);
-                    if (Auras.ContainsKey(auraPointer))
-                        Auras[auraPointer].Validate(auraPointer);
-                    else
-                        Auras.Add(auraPointer, new WoWAura(auraPointer));
-                }
+                var ptr = Unit.GetAuraPointer(i);
+                if (Auras.ContainsKey(ptr))
+                    Auras[ptr].Validate(ptr);
+                else
+                    Auras.Add(ptr, new WoWAura(ptr));
             }
+
             Auras.Where(a => !a.Value.IsValid).ToList().ForEach(a => Auras.Remove(a.Key));
         }
 

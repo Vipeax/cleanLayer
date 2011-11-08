@@ -59,6 +59,11 @@
             this.btnScriptStart = new System.Windows.Forms.Button();
             this.lstScripts = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnEnchants = new System.Windows.Forms.Button();
+            this.btnDumpTarget = new System.Windows.Forms.Button();
+            this.btnDumpMe = new System.Windows.Forms.Button();
+            this.btnShapeshift = new System.Windows.Forms.Button();
+            this.btnMounts = new System.Windows.Forms.Button();
             this.btnTotems = new System.Windows.Forms.Button();
             this.btnSpellDump = new System.Windows.Forms.Button();
             this.tbLua = new System.Windows.Forms.TextBox();
@@ -69,10 +74,7 @@
             this.lstLocations = new System.Windows.Forms.ListBox();
             this.rbLogBox = new System.Windows.Forms.RichTextBox();
             this.GUITimer = new System.Windows.Forms.Timer(this.components);
-            this.btnMounts = new System.Windows.Forms.Button();
-            this.btnShapeshift = new System.Windows.Forms.Button();
-            this.btnDumpMe = new System.Windows.Forms.Button();
-            this.btnDumpTarget = new System.Windows.Forms.Button();
+            this.btnAuraDump = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -384,6 +386,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnAuraDump);
+            this.tabPage2.Controls.Add(this.btnEnchants);
             this.tabPage2.Controls.Add(this.btnDumpTarget);
             this.tabPage2.Controls.Add(this.btnDumpMe);
             this.tabPage2.Controls.Add(this.btnShapeshift);
@@ -399,6 +403,55 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Debug";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnEnchants
+            // 
+            this.btnEnchants.Location = new System.Drawing.Point(8, 148);
+            this.btnEnchants.Name = "btnEnchants";
+            this.btnEnchants.Size = new System.Drawing.Size(75, 23);
+            this.btnEnchants.TabIndex = 17;
+            this.btnEnchants.Text = "Enchants";
+            this.btnEnchants.UseVisualStyleBackColor = true;
+            this.btnEnchants.Click += new System.EventHandler(this.btnEnchants_Click);
+            // 
+            // btnDumpTarget
+            // 
+            this.btnDumpTarget.Location = new System.Drawing.Point(214, 183);
+            this.btnDumpTarget.Name = "btnDumpTarget";
+            this.btnDumpTarget.Size = new System.Drawing.Size(75, 23);
+            this.btnDumpTarget.TabIndex = 16;
+            this.btnDumpTarget.Text = "Dump Target";
+            this.btnDumpTarget.UseVisualStyleBackColor = true;
+            // 
+            // btnDumpMe
+            // 
+            this.btnDumpMe.Location = new System.Drawing.Point(295, 182);
+            this.btnDumpMe.Name = "btnDumpMe";
+            this.btnDumpMe.Size = new System.Drawing.Size(75, 23);
+            this.btnDumpMe.TabIndex = 15;
+            this.btnDumpMe.Text = "Dump me";
+            this.btnDumpMe.UseVisualStyleBackColor = true;
+            this.btnDumpMe.Click += new System.EventHandler(this.btnDumpMe_Click);
+            // 
+            // btnShapeshift
+            // 
+            this.btnShapeshift.Location = new System.Drawing.Point(8, 119);
+            this.btnShapeshift.Name = "btnShapeshift";
+            this.btnShapeshift.Size = new System.Drawing.Size(75, 23);
+            this.btnShapeshift.TabIndex = 14;
+            this.btnShapeshift.Text = "Shapeshift";
+            this.btnShapeshift.UseVisualStyleBackColor = true;
+            this.btnShapeshift.Click += new System.EventHandler(this.btnShapeshift_Click);
+            // 
+            // btnMounts
+            // 
+            this.btnMounts.Location = new System.Drawing.Point(8, 90);
+            this.btnMounts.Name = "btnMounts";
+            this.btnMounts.Size = new System.Drawing.Size(75, 23);
+            this.btnMounts.TabIndex = 13;
+            this.btnMounts.Text = "Mounts";
+            this.btnMounts.UseVisualStyleBackColor = true;
+            this.btnMounts.Click += new System.EventHandler(this.btnMounts_Click);
             // 
             // btnTotems
             // 
@@ -498,44 +551,15 @@
             this.GUITimer.Interval = 500;
             this.GUITimer.Tick += new System.EventHandler(this.GUITimer_Tick);
             // 
-            // btnMounts
+            // btnAuraDump
             // 
-            this.btnMounts.Location = new System.Drawing.Point(8, 90);
-            this.btnMounts.Name = "btnMounts";
-            this.btnMounts.Size = new System.Drawing.Size(75, 23);
-            this.btnMounts.TabIndex = 13;
-            this.btnMounts.Text = "Mounts";
-            this.btnMounts.UseVisualStyleBackColor = true;
-            this.btnMounts.Click += new System.EventHandler(this.btnMounts_Click);
-            // 
-            // btnShapeshift
-            // 
-            this.btnShapeshift.Location = new System.Drawing.Point(8, 119);
-            this.btnShapeshift.Name = "btnShapeshift";
-            this.btnShapeshift.Size = new System.Drawing.Size(75, 23);
-            this.btnShapeshift.TabIndex = 14;
-            this.btnShapeshift.Text = "Shapeshift";
-            this.btnShapeshift.UseVisualStyleBackColor = true;
-            this.btnShapeshift.Click += new System.EventHandler(this.btnShapeshift_Click);
-            // 
-            // btnDumpMe
-            // 
-            this.btnDumpMe.Location = new System.Drawing.Point(295, 182);
-            this.btnDumpMe.Name = "btnDumpMe";
-            this.btnDumpMe.Size = new System.Drawing.Size(75, 23);
-            this.btnDumpMe.TabIndex = 15;
-            this.btnDumpMe.Text = "Dump me";
-            this.btnDumpMe.UseVisualStyleBackColor = true;
-            this.btnDumpMe.Click += new System.EventHandler(this.btnDumpMe_Click);
-            // 
-            // btnDumpTarget
-            // 
-            this.btnDumpTarget.Location = new System.Drawing.Point(214, 183);
-            this.btnDumpTarget.Name = "btnDumpTarget";
-            this.btnDumpTarget.Size = new System.Drawing.Size(75, 23);
-            this.btnDumpTarget.TabIndex = 16;
-            this.btnDumpTarget.Text = "Dump Target";
-            this.btnDumpTarget.UseVisualStyleBackColor = true;
+            this.btnAuraDump.Location = new System.Drawing.Point(89, 33);
+            this.btnAuraDump.Name = "btnAuraDump";
+            this.btnAuraDump.Size = new System.Drawing.Size(75, 23);
+            this.btnAuraDump.TabIndex = 18;
+            this.btnAuraDump.Text = "Aura dump";
+            this.btnAuraDump.UseVisualStyleBackColor = true;
+            this.btnAuraDump.Click += new System.EventHandler(this.btnAuraDump_Click);
             // 
             // CleanForm
             // 
@@ -609,5 +633,7 @@
         private System.Windows.Forms.Button btnShapeshift;
         private System.Windows.Forms.Button btnDumpTarget;
         private System.Windows.Forms.Button btnDumpMe;
+        private System.Windows.Forms.Button btnEnchants;
+        private System.Windows.Forms.Button btnAuraDump;
     }
 }

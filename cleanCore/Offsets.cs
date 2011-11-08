@@ -57,6 +57,9 @@ namespace cleanCore
         public static uint ActiveCamera;
         public static uint AspectRatio;
 
+        public static uint GetAuraCount = 0x58390;
+        public static uint GetAura = 0x583B0;
+
         // TODO: Make patterns
         public static uint
             SpellCount = 0xAF547C,

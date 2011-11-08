@@ -66,37 +66,68 @@ namespace cleanCore
 
         public WoWUnit Caster
         {
-            get { return (IsValid ? Manager.GetObjectByGuid(CasterGuid) as WoWUnit ?? WoWUnit.Invalid : WoWUnit.Invalid); }
+            get
+            {
+                if (!IsValid)
+                    return WoWUnit.Invalid;
+                return Manager.GetObjectByGuid(CasterGuid) as WoWUnit ?? WoWUnit.Invalid;
+            }
         }
 
         public ulong CasterGuid
         {
-            get { return (IsValid ? Helper.Magic.Read<ulong>((IntPtr)Entry.CreatorGuid) : 0ul); }
+            get
+            {
+                if (!IsValid)
+                    return 0ul;
+                return Entry.CreatorGuid;
+            }
         }
 
         public bool IsMine
         {
-            get { return CasterGuid == Manager.LocalPlayer.Guid; }
+            get
+            {
+                return CasterGuid == Manager.LocalPlayer.Guid;
+            }
         }
 
         public byte Flags
         {
-            get { return (IsValid ? Entry.Flags : (byte)0); }
+            get
+            {
+                if (!IsValid)
+                    return (byte)0;
+                return Entry.Flags;
+            }
         }
 
         public int Level
         {
-            get { return (IsValid ? Entry.Level : 0); }
+            get
+            {
+                if (!IsValid)
+                    return 0;
+                return Entry.Level;
+            }
         }
 
         public ushort StackCount
         {
-            get { return (IsValid ? Entry.StackCount : (ushort)0); }
+            get
+            {
+                if (!IsValid)
+                    return (ushort)0;
+                return Entry.StackCount;
+            }
         }
 
         public int Duration
         {
-            get { return (IsValid ? (int)(Entry.Duration / 1000) : 0); }
+            get
+            {
+                return (IsValid ? (int)(Entry.Duration / 1000) : 0);
+            }
         }
 
         public int Remaining

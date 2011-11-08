@@ -35,10 +35,10 @@ namespace cleanLayer.Brains.Shaman
 
         protected void SetTotems()
         {
-            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsEarth, eWoWTotem.Stoneskin);
-            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsFire, eWoWTotem.Searing);
-            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsWater, eWoWTotem.HealingStream);
-            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsAir, eWoWTotem.WrathOfAir);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsEarth, Totem.Stoneskin);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsFire, Totem.Searing);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsWater, Totem.HealingStream);
+            TotemHelper.SetTotemSlot(MultiCastSlot.ElementsAir, Totem.WrathOfAir);
         }
 
         protected override HarmfulSpellAction PullSpell

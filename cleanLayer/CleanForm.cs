@@ -39,11 +39,11 @@ namespace cleanLayer
 
             WoWLocalPlayer me = Manager.LocalPlayer;
 
-            pbHealth.Maximum = (int) me.MaxHealth;
-            pbHealth.Value = (int) me.Health;
+            pbHealth.Maximum = (int)me.MaxHealth;
+            pbHealth.Value = (int)me.Health;
 
-            pbPower.Maximum = (int) me.MaxPower;
-            pbPower.Value = (int) me.Power;
+            pbPower.Maximum = (int)me.MaxPower;
+            pbPower.Value = (int)me.Power;
         }
 
         private void SetupBrains()
@@ -84,7 +84,7 @@ namespace cleanLayer
 
         private void cbBots_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Bot.Initialize((BotBase) cbBots.SelectedItem);
+            Bot.Initialize((BotBase)cbBots.SelectedItem);
             btnBotSettings.Enabled = Bot.CurrentBot.BotForm != null;
             btnBotStart.Enabled = Bot.CurrentBot != null && Combat.Brain != null;
         }
@@ -108,7 +108,7 @@ namespace cleanLayer
 
         private void cbBrains_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Combat.Initialize((Brain) cbBrains.SelectedItem);
+            Combat.Initialize((Brain)cbBrains.SelectedItem);
             btnBotStart.Enabled = Bot.CurrentBot != null && Combat.Brain != null;
         }
 
@@ -193,6 +193,22 @@ namespace cleanLayer
             };
         }
 
+        private void btnEnchants_Click(object sender, EventArgs e)
+        {
+            var items = Manager.LocalPlayer.Items;
+            foreach (var i in items)
+            {
+                if (i.Enchants.Count > 0)
+                {
+                    Log.WriteLine("{0}:", i.Name);
+                    foreach (var en in i.Enchants)
+                    {
+                        Log.WriteLine("\tID: {0} - E: {1} - C: {2}", en.Id, en.Expiration, en.ChargesLeft);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region Scripts tab
@@ -247,7 +263,7 @@ namespace cleanLayer
         private void btnPathTo_Click(object sender, EventArgs e)
         {
             Location target;
-            Locations.TryGetValue((string) lstLocations.SelectedItem, out target);
+            Locations.TryGetValue((string)lstLocations.SelectedItem, out target);
             if (target == null)
                 return;
 
@@ -284,12 +300,25 @@ namespace cleanLayer
 
         public void WriteLine(string entry)
         {
-            rbLogBox.Invoke((Action) (() =>
+            rbLogBox.Invoke((Action)(() =>
                                           {
                                               rbLogBox.AppendText(entry + Environment.NewLine);
                                               rbLogBox.ScrollToCaret();
                                           }));
         }
         #endregion
+
+        private void btnAuraDump_Click(object sender, EventArgs e)
+        {
+            Program.OnFrameOnce += delegate
+            {
+                var aura = Manager.LocalPlayer.Auras;
+                foreach (var a in aura)
+                {
+                    a.DumpProperties();
+                    //Log.WriteLine("#{0}: {1}", a.ID, a.Name);
+                }
+            };
+        }
     }
 }

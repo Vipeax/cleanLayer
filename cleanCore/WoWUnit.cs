@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace cleanCore
 {
-
     public class WoWUnit : WoWObject
     {
         [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
@@ -27,6 +26,14 @@ namespace cleanCore
         [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
         private delegate int GetShapeshiftFormIdDelegate(IntPtr thisObj);
         private static GetShapeshiftFormIdDelegate _getShapeshiftFormId;
+
+        [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
+        private delegate int GetAuraCountDelegate(IntPtr thisObj);
+        private static GetAuraCountDelegate _getAuraCount;
+
+        [UnmanagedFunctionPointer(CallingConvention.ThisCall)]
+        private delegate IntPtr GetAuraDelegate(IntPtr thisObj, int index);
+        private static GetAuraDelegate _getAura;
 
         public WoWUnit(IntPtr pointer)
             : base(pointer)
@@ -57,13 +64,6 @@ namespace cleanCore
         public bool IsHostile
         {
             get { return (int)Reaction < (int)UnitReaction.Neutral; }
-        }
-
-        public bool HasAura(int spellId)
-        {
-            if (_hasAura == null)
-                _hasAura = Helper.Magic.RegisterDelegate<HasAuraDelegate>(Offsets.HasAuraBySpellId);
-            return _hasAura(Pointer, spellId);
         }
 
         public ulong TargetGuid
@@ -433,6 +433,30 @@ namespace cleanCore
         public bool IsCasting
         {
             get { return (ChanneledCastingId != 0 || CastingId != 0); }
+        }
+
+        public bool HasAura(int spellId)
+        {
+            if (_hasAura == null)
+                _hasAura = Helper.Magic.RegisterDelegate<HasAuraDelegate>(Offsets.HasAuraBySpellId);
+            return _hasAura(Pointer, spellId);
+        }
+
+        public IntPtr GetAuraPointer(int index)
+        {
+            if (_getAura == null)
+                _getAura = Helper.Magic.RegisterDelegate<GetAuraDelegate>(Offsets.GetAura);
+            return _getAura(Pointer, index);
+        }
+
+        public int GetAuraCount
+        {
+            get
+            {
+                if (_getAuraCount == null)
+                    _getAuraCount = Helper.Magic.RegisterDelegate<GetAuraCountDelegate>(Offsets.GetAuraCount);
+                return _getAuraCount(Pointer);
+            }
         }
 
         private WoWAuraCollection _auras;

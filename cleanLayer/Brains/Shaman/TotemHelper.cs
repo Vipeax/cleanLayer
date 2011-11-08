@@ -9,9 +9,9 @@ namespace cleanLayer.Brains.Shaman
 {
     public static class TotemHelper
     {
-        public static void SetTotemSlot(MultiCastSlot slot, eWoWTotem spellID)
+        public static void SetTotemSlot(MultiCastSlot slot, Totem spellID)
         {
-            WoWScript.Execute("SetMultiCastSpell(" + (int)slot + ", " + (int)spellID + ")");
+            WoWScript.ExecuteNoResults("SetMultiCastSpell(" + (int)slot + ", " + (int)spellID + ")");
         }
 
         public static bool CallTotems()
@@ -26,7 +26,7 @@ namespace cleanLayer.Brains.Shaman
             return false;
         }
 
-        public static bool CallTotem(eWoWTotem totem)
+        public static bool CallTotem(Totem totem)
         {
             var spell = WoWSpell.GetSpell((int)totem);
             if (spell.IsValid && spell.IsReady)
