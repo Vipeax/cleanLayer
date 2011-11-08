@@ -56,7 +56,7 @@ namespace cleanCore
         public string Name
         {
             get;
-            set;
+            private set;
         }
 
         public bool IsValid
@@ -126,7 +126,9 @@ namespace cleanCore
         {
             get
             {
-                return (IsValid ? (int)(Entry.Duration / 1000) : 0);
+                if (!IsValid)
+                    return 0;
+                return (int)(Entry.Duration / 1000);
             }
         }
 

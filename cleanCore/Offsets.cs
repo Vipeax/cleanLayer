@@ -57,6 +57,7 @@ namespace cleanCore
         public static uint ActiveCamera;
         public static uint AspectRatio;
 
+        // Patterns!
         public static uint GetAuraCount = 0x58390;
         public static uint GetAura = 0x583B0;
 
@@ -80,16 +81,6 @@ namespace cleanCore
             public static uint BidderCount;
             public static uint AuctionSize;
             public static uint ExpireOffset;
-        }
-
-        // TODO: Make patterns
-        public static class Aura
-        {
-            public static uint AuraCount = 0xE90;
-            public static uint AuraTable = 0xC10;
-            public static uint AuraCountEx = 0xC14;
-            public static uint AuraTableEx = 0xC18;
-            public static uint AuraSize = 0x28;
         }
 
         public static void Initialize()

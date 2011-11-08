@@ -445,7 +445,7 @@ namespace cleanCore
         public IntPtr GetAuraPointer(int index)
         {
             if (_getAura == null)
-                _getAura = Helper.Magic.RegisterDelegate<GetAuraDelegate>(Offsets.GetAura);
+                _getAura = Helper.Magic.RegisterDelegate<GetAuraDelegate>(Helper.Rebase(Offsets.GetAura));
             return _getAura(Pointer, index);
         }
 
@@ -454,7 +454,7 @@ namespace cleanCore
             get
             {
                 if (_getAuraCount == null)
-                    _getAuraCount = Helper.Magic.RegisterDelegate<GetAuraCountDelegate>(Offsets.GetAuraCount);
+                    _getAuraCount = Helper.Magic.RegisterDelegate<GetAuraCountDelegate>(Helper.Rebase(Offsets.GetAuraCount));
                 return _getAuraCount(Pointer);
             }
         }

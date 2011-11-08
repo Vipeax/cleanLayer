@@ -126,8 +126,7 @@ namespace cleanLayer.Brains.Shaman
             // TODO: Fix the aura issue where CasterGuid gives "Arithmetic operation resulted in an overflow."
             public override bool IsWanted
             {
-                get { return base.IsWanted && !Brain.HarmfulTarget.Auras["Flame Shock"].IsValid; }
-                /*get { return base.IsWanted && Brain.HarmfulTarget.Auras.Where(x => x.IsValid && x.Name == "Flame Shock" && x.CasterGuid == Manager.LocalPlayer.Guid).Count() == 0; }*/
+                get { return base.IsWanted && Brain.HarmfulTarget.Auras.Where(x => x.IsValid && x.Name == "Flame Shock" && x.CasterGuid == Manager.LocalPlayer.Guid).Count() == 0; }
             }
         }
 
