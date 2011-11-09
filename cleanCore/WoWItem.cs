@@ -13,30 +13,23 @@ namespace cleanCore
 
         public WoWItem(IntPtr pointer)
             : base(pointer)
-        {
-            Enchants = new List<WoWEnchant>();
-            RefreshEnchants();
-        }
+        { }
 
-        public void RefreshEnchants()
+        public List<WoWEnchant> Enchants
         {
-            Enchants.Clear();
-            for (var i = 0; i < 12; i++)
+            get
             {
-                try
+                var ret = new List<WoWEnchant>();
+                for (var i = 0; i < 12; i++)
                 {
-                    Enchants.Add(new WoWEnchant()
-                    {
-                        Id = GetDescriptor<uint>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 3)),
-                        Expiration = GetDescriptor<int>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 3) + 1),
-                        ChargesLeft = GetDescriptor<int>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 3) + 2),
-                    });
+                    var id = GetDescriptor<uint>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12));
+                    var exp = GetDescriptor<int>(((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12)) + 4);
+                    var charge = GetDescriptor<int>(((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12)) + 8);
+                    ret.Add(new WoWEnchant(id, exp, charge));
                 }
-                catch { }
+                return ret;
             }
         }
-
-        public List<WoWEnchant> Enchants { get; private set; }
 
         public ulong OwnerGuid
         {
@@ -94,9 +87,9 @@ namespace cleanCore
             }
         }
 
-        public int EnchantId
+        public uint EnchantId
         {
-            get { return GetDescriptor<int>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1); }
+            get { return GetDescriptor<uint>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1); }
         }
 
         public void Use()
@@ -114,6 +107,12 @@ namespace cleanCore
 
         public class WoWEnchant
         {
+            public WoWEnchant(uint id, int expiration, int chargesleft)
+            {
+                Id = id;
+                Expiration = expiration;
+                ChargesLeft = chargesleft;
+            }
             public uint Id;
             public int Expiration;
             public int ChargesLeft;

@@ -29,8 +29,8 @@ namespace cleanCore
 
             ForceUpdate = false;
 
-            var spellCount = Helper.Magic.Read<int>(Helper.Rebase(Offsets.SpellCount));
-            var spellBook = Helper.Magic.Read<uint>(Helper.Rebase(Offsets.SpellBook));
+            var spellCount = Helper.Magic.Read<int>(Offsets.SpellCount);
+            var spellBook = Helper.Magic.Read<uint>(Offsets.SpellBook);
             for (int i = 0; i < spellCount; i++)
             {
                 var spellStruct = Helper.Magic.ReadStruct<uint>((IntPtr)(spellBook + (i * 4)));

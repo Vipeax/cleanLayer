@@ -445,7 +445,7 @@ namespace cleanCore
         public IntPtr GetAuraPointer(int index)
         {
             if (_getAura == null)
-                _getAura = Helper.Magic.RegisterDelegate<GetAuraDelegate>(Helper.Rebase(Offsets.GetAura));
+                _getAura = Helper.Magic.RegisterDelegate<GetAuraDelegate>(Offsets.GetAura);
             return _getAura(Pointer, index);
         }
 
@@ -454,7 +454,7 @@ namespace cleanCore
             get
             {
                 if (_getAuraCount == null)
-                    _getAuraCount = Helper.Magic.RegisterDelegate<GetAuraCountDelegate>(Helper.Rebase(Offsets.GetAuraCount));
+                    _getAuraCount = Helper.Magic.RegisterDelegate<GetAuraCountDelegate>(Offsets.GetAuraCount);
                 return _getAuraCount(Pointer);
             }
         }
@@ -474,7 +474,7 @@ namespace cleanCore
             get
             {
                 if (_creatureType == null)
-                    _creatureType = Helper.Magic.RegisterDelegate<CreatureTypeDelegate>(Helper.Rebase(Offsets.CreatureType));
+                    _creatureType = Helper.Magic.RegisterDelegate<CreatureTypeDelegate>(Offsets.GetCreatureType);
                 return (CreatureType)_creatureType(Pointer);
             }
         }
@@ -484,7 +484,7 @@ namespace cleanCore
             get
             {
                 if (_getShapeshiftFormId == null)
-                    _getShapeshiftFormId = Helper.Magic.RegisterDelegate<GetShapeshiftFormIdDelegate>(Helper.Rebase(Offsets.GetShapeshiftFormId));
+                    _getShapeshiftFormId = Helper.Magic.RegisterDelegate<GetShapeshiftFormIdDelegate>(Offsets.ShapeshiftFormId);
                 return (ShapeshiftForm)_getShapeshiftFormId(Pointer);
             }
         }

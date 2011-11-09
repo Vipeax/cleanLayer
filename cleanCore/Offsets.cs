@@ -33,7 +33,6 @@ namespace cleanCore
         public static uint Traceline;
         public static uint UnitReaction;
         public static uint CalculateThreat;
-
         public static uint EventVictim;
         public static uint LuaSetTop;
         public static uint LuaGetTop;
@@ -44,29 +43,23 @@ namespace cleanCore
         public static uint LuaToNumber;
         public static uint LuaToLString;
         public static uint LuaToBoolean;
-
         public static uint PartyArray;
         public static uint CorpsePosition;
         public static uint LastHardwareAction;
-
         public static uint CurrentMapId;
-
         public static uint ClientDB_GetRow;
-
-        public static uint WorldFrame; // verify these 3 patterns due to crash in the Drawing script
+        public static uint WorldFrame;
         public static uint ActiveCamera;
         public static uint AspectRatio;
-
-        // Patterns!
-        public static uint GetAuraCount = 0x58390;
-        public static uint GetAura = 0x583B0;
+        public static uint GetCreatureType;
+        public static uint ShapeshiftFormId;
+        public static uint GetAuraCount;
+        public static uint GetAura;
+        public static uint SpellCount;
+        public static uint SpellBook;
 
         // TODO: Make patterns
         public static uint
-            SpellCount = 0xAF547C,
-            SpellBook = 0xAF5480,
-            CreatureType = 0x1AF330,
-            GetShapeshiftFormId = 0x1AAA00,
             CastingId = 0xA34,
             ChanneledCastingId = 0xA48,
             IsBobbing = 0xD4;
@@ -431,6 +424,50 @@ namespace cleanCore
                     p.Modifiers.Add(new LeaModifier());
                     AspectRatio = p.Find();
                     log.WriteLine("AspectRatio: 0x" + (AspectRatio - baseaddr).ToString("X"));
+                }
+
+                {
+                    var p = Pattern.FromTextstyle("CGUnit_C__GetCreatureType",
+                                                  "80 b9 ?? ?? ?? ?? ?? 74 ?? 33 c0 eb ??");
+                    GetCreatureType = p.Find();
+                    log.WriteLine("CreatureType: 0x" + (GetCreatureType - baseaddr).ToString("X"));
+                }
+
+                {
+                    var p = Pattern.FromTextstyle("CGUnit_C__GetShapeshiftFormId",
+                                                  "80 b9 ?? ?? ?? ?? ?? 74 ?? 33 c0 c3 8b 81 ?? ?? ?? ??");
+                    ShapeshiftFormId = p.Find();
+                    log.WriteLine("ShapeshiftFormId: 0x" + (ShapeshiftFormId - baseaddr).ToString("X"));
+                }
+
+                {
+                    var p = Pattern.FromTextstyle("CGUnit_C__GetAuraCount",
+                                                  "8b 81 ?? ?? ?? ?? 83 ?? ?? 75 ?? 8b 81 ?? ?? ?? ??");
+                    GetAuraCount = p.Find();
+                    log.WriteLine("GetAuraCount: 0x" + (GetAuraCount - baseaddr).ToString("X"));
+                }
+
+                {
+                    var p = Pattern.FromTextstyle("CGUnit_C__GetAura",
+                                                  "55 8b ec 8b 81 ?? ?? ?? ?? 83 ?? ?? 75 ?? 8b 91 ?? ?? ?? ?? eb ?? 8b d0 8b ?? ?? 3b c2 73 ?? 83 b9 ?? ?? ?? ?? ??");
+                    GetAura = p.Find();
+                    log.WriteLine("GetAura: 0x" + (GetAura - baseaddr).ToString("X"));
+                }
+
+                {
+                    var p = Pattern.FromTextstyle("CGSpellBook__UpdateSpells",
+                                                  "8b 15 ?? ?? ?? ?? a1 80 ?? ?? ?? 68 ?? ?? ?? ?? 6a ?? 52 50 e8 9f ?? ?? ??");
+                    p.Modifiers.Add(new AddModifier(2)); // 8B 15 7C 54 EF 00                 mov     edx, dword_EF547C
+                    p.Modifiers.Add(new LeaModifier());
+                    SpellCount = p.Find();
+                    log.WriteLine("SpellCount: 0x" + (SpellCount - baseaddr).ToString("X"));
+
+                    p.Modifiers.Clear();
+
+                    p.Modifiers.Add(new AddModifier(7)); // A1 80 54 EF 00                    mov     eax, dword_EF5480
+                    p.Modifiers.Add(new LeaModifier());
+                    SpellBook = p.Find();
+                    log.WriteLine("SpellBook: 0x" + (SpellBook - baseaddr).ToString("X"));
                 }
 
                 WoWLocalPlayer.Initialize();
