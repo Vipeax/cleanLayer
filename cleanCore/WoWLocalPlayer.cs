@@ -128,6 +128,13 @@ namespace cleanCore
             }
         }
 
+        public WoWItem GetEquippedItem(EquipSlot slot)
+        {
+            var entry = GetDescriptor<uint>((int)PlayerField.PLAYER_VISIBLE_ITEM_1_ENTRYID + ((int)slot * 0x8));
+            var item = Items.Where(x => x.Entry == entry).FirstOrDefault() ?? WoWItem.Invalid;
+            return item;
+        }
+
         #region Movement
 
         public void Ascend()

@@ -15,17 +15,16 @@ namespace cleanCore
             : base(pointer)
         { }
 
-        public List<WoWEnchant> Enchants
+        public List<uint> Enchants
         {
             get
             {
-                var ret = new List<WoWEnchant>();
+                var ret = new List<uint>();
                 for (var i = 0; i < 12; i++)
                 {
                     var id = GetDescriptor<uint>((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12));
-                    var exp = GetDescriptor<int>(((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12)) + 4);
-                    var charge = GetDescriptor<int>(((int)ItemField.ITEM_FIELD_ENCHANTMENT_1_1 + (i * 12)) + 8);
-                    ret.Add(new WoWEnchant(id, exp, charge));
+                    if (id > 0)
+                        ret.Add(id);
                 }
                 return ret;
             }
@@ -103,19 +102,6 @@ namespace cleanCore
             if (_useItem == null)
                 _useItem = Helper.Magic.RegisterDelegate<UseItemDelegate>(Offsets.UseItem);
             _useItem(Manager.LocalPlayer.Pointer, ref guid, 0);
-        }
-
-        public class WoWEnchant
-        {
-            public WoWEnchant(uint id, int expiration, int chargesleft)
-            {
-                Id = id;
-                Expiration = expiration;
-                ChargesLeft = chargesleft;
-            }
-            public uint Id;
-            public int Expiration;
-            public int ChargesLeft;
         }
 
         public static implicit operator IntPtr(WoWItem self)

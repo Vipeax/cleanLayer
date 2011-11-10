@@ -7,6 +7,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains.Shaman
 {
+    [PluginInfo("Basic Elemental Shaman", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Shaman, "Elemental")]
     public class ElementalShamanBrain : Brain
     {
         // TODO: Add checks for whether our weapon has a Shaman enchant (they're enchants, so you can't check by aura)
@@ -19,16 +22,6 @@ namespace cleanLayer.Brains.Shaman
             AddAction(new HarmfulSpellAction(this, 8, "Lava Burst", 25));
             AddAction(new Shield(this, 7));
             AddAction(new HarmfulSpellAction(this, 8, "Lightning Bolt", 25));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Shaman; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Elemental"; }
         }
 
         private bool _totemsSet = false;
@@ -63,6 +56,18 @@ namespace cleanLayer.Brains.Shaman
             {
                 if (TotemHelper.CallTotems())
                     Sleep(Globals.SpellWait);
+            }
+
+            var ft = WoWSpell.GetSpell("Flametongue Weapon");            
+            if (ft.IsValid && ft.IsReady) // 5 appears to be flametongue weapon
+            {
+                var mainhand = Manager.LocalPlayer.GetEquippedItem(EquipSlot.MainHand);
+                if (!mainhand.Enchants.Contains(5))
+                {
+                    Log.WriteLine("Applying Flametongue Weapon to main-hand");
+                    ft.Cast();
+                    Sleep(Globals.SpellWait);
+                }
             }
 
             // Instant Lava Burst

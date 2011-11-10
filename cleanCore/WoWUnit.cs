@@ -489,6 +489,11 @@ namespace cleanCore
             }
         }
 
+        public bool IsStealthed
+        {
+            get { return Shapeshift == ShapeshiftForm.Stealth; }
+        }
+
         public bool IsTotem
         {
             get { return CreatureType == CreatureType.Totem; }

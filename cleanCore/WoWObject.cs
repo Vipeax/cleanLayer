@@ -138,15 +138,15 @@ namespace cleanCore
             }
         }
 
-        public ulong GuildId
+        public uint Data
         {
             get
             {
-                return GetDescriptor<ulong>((int)ObjectField.OBJECT_FIELD_DATA);
+                return GetDescriptor<uint>((int)ObjectField.OBJECT_FIELD_DATA);
             }
         }
 
-        public uint Data
+        public uint Entry
         {
             get
             {

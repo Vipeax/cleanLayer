@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Protection Paladin", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Paladin, "Protection")]
     public class ProtectionPaladinBrain : Brain
     {
         public ProtectionPaladinBrain()
@@ -18,16 +21,6 @@ namespace cleanLayer.Brains
             AddAction(new ShieldOfTheRighteous(this, 3));
             AddAction(new HolyWrath(this, 2));
             AddAction(new Consecration(this, 1));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Paladin; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Protection"; }
         }
 
         protected override HarmfulSpellAction PullSpell

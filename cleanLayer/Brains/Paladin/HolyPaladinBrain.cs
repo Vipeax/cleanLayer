@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Holy Paladin", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Paladin, "Holy")]
     public class HolyPaladinBrain : Brain
     {
         public HolyPaladinBrain()
@@ -17,16 +20,6 @@ namespace cleanLayer.Brains
             AddAction(new HolyShock(this, 3));
             AddAction(new FlashOfLight(this, 2));
             AddAction(new Judgement(this, 1, 8));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Paladin; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Holy"; }
         }
 
         protected override HarmfulSpellAction PullSpell

@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Retribution Paladin", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Paladin, "Retribution")]
     public class RetributionPaladinBrain : Brain
     {
         public RetributionPaladinBrain()
@@ -17,16 +20,6 @@ namespace cleanLayer.Brains
             AddAction(new HolyWrath(this, 4));
             AddAction(new Consecration(this, 3));
             AddAction(new Rebuke(this, 2));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Paladin; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Retribution"; }
         }
 
         protected override HarmfulSpellAction PullSpell

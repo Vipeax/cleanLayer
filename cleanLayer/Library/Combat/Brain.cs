@@ -87,7 +87,7 @@ namespace cleanLayer.Library.Combat
             try
             {
                 SelectTargets();
-                
+
                 var action = (from a in BrainActions
                               where a.IsWanted && a.IsReady
                               orderby a.Priority descending
@@ -103,6 +103,11 @@ namespace cleanLayer.Library.Combat
                         Manager.LocalPlayer.ClickToMove(HarmfulTarget.Location);
                         Sleep(200);
                     }
+                    else
+                    {
+                        HarmfulTarget.Select();
+                        HarmfulTarget.Face();
+                    }
                 }
 
                 else if (action is HelpfulSpellAction && HelpfulTarget.IsValid)
@@ -115,10 +120,15 @@ namespace cleanLayer.Library.Combat
                         Manager.LocalPlayer.ClickToMove(HelpfulTarget.Location);
                         Sleep(200);
                     }
+                    else
+                    {
+                        HelpfulTarget.Select();
+                        HelpfulTarget.Face();
+                    }
                 }
 
                 if (Manager.LocalPlayer.IsClickMoving)
-                    Manager.LocalPlayer.StopCTM();                
+                    Manager.LocalPlayer.StopCTM();
 
                 OnBeforeAction(action);
                 if (action != null)
@@ -135,14 +145,29 @@ namespace cleanLayer.Library.Combat
             }
         }
 
-        public abstract WoWClass Class
+        public WoWClass Class
         {
-            get;
+            get { return this.GetType().GetBrainInfo().Class; }
         }
 
-        public abstract string Specialization
+        public string Specialization
         {
-            get;
+            get { return this.GetType().GetBrainInfo().Specialization; }
+        }
+
+        public string Name
+        {
+            get { return this.GetType().GetInfo().Name; }
+        }
+
+        public string Version
+        {
+            get { return this.GetType().GetInfo().Version; }
+        }
+
+        public string Author
+        {
+            get { return this.GetType().GetAuthor(); }
         }
 
         private DateTime SleepTime
@@ -210,4 +235,59 @@ namespace cleanLayer.Library.Combat
             private set;
         }
     }
+
+    #region Attributes
+
+    public class PluginInfo : Attribute
+    {
+        public PluginInfo(string name)
+        {
+            Name = name;
+        }
+
+        public PluginInfo(string name, string version)
+        {
+            Name = name;
+            Version = version;
+        }
+
+        public string Name { get; private set; }
+        public string Version { get; private set; }
+
+        public override string ToString()
+        {
+            if (!string.IsNullOrEmpty(Name))
+                return string.Format("{0} v{1}", Name, Version);
+            return Name;
+        }
+    }
+
+    public class PluginAuthor : Attribute
+    {
+        public PluginAuthor(string author)
+        {
+            Author = author;
+        }
+
+        public string Author { get; private set; }
+    }
+
+    public class BrainInfo : Attribute
+    {
+        public BrainInfo(WoWClass wowclass, string specialization)
+        {
+            Class = wowclass;
+            Specialization = specialization;
+        }
+
+        public WoWClass Class { get; private set; }
+        public string Specialization { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("[{0}] {1}", Class, Specialization);
+        }
+    }
+
+    #endregion
 }

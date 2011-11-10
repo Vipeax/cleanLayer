@@ -429,10 +429,9 @@ namespace cleanCore
         HolyPower,
     }
 
-    public enum InventorySlots : int
+    public enum EquipSlot : int
     {
-        Ammo = 0,
-        Head,
+        Head = 0,
         Neck,
         Shoulder,
         Body,
@@ -452,8 +451,8 @@ namespace cleanCore
         Ranged,
         Tabard,
 
-        FIRST_EQUIPPED = InventorySlots.Head,
-        LAST_EQUIPPED = InventorySlots.Tabard,
+        FIRST_EQUIPPED = EquipSlot.Head,
+        LAST_EQUIPPED = EquipSlot.Tabard,
     }
 
     public enum ShapeshiftForm

@@ -93,23 +93,28 @@ namespace cleanLayer.Library.Scripts
             {
                 OnCompilerStarted();
 
-                lock (SynchronizeLock)
-                    ScriptPool.Clear();
+                //lock (SynchronizeLock)
+                //    ScriptPool.Clear();
 
                 string[] files = Directory.GetFiles(ScriptFolder, "*.cs", SearchOption.AllDirectories);
                 Log.WriteLine("Found {0} files in Scripts folder", files.Length);
 
-                string[] references = { "System.dll", "System.Core.dll", "../WhiteMagic.dll", "../cleanCore.exe", Assembly.GetExecutingAssembly().Location };
-
-                var parameters = new CompilerParameters(references)
+                var parameters = new CompilerParameters()
                 {
+                    CompilerOptions = string.Format("/lib:\"{0}\"", AppDomain.CurrentDomain.BaseDirectory),
                     GenerateExecutable = false,
                     GenerateInMemory = true,
                     IncludeDebugInformation = false,
                     OutputAssembly = "Scripts"
                 };
 
-                var provider = new CSharpCodeProvider();
+                parameters.ReferencedAssemblies.Add("System.dll");
+                parameters.ReferencedAssemblies.Add("System.Core.dll");
+                parameters.ReferencedAssemblies.Add("WhiteMagic.dll");
+                parameters.ReferencedAssemblies.Add("cleanLayer.exe");
+                parameters.ReferencedAssemblies.Add(Path.GetFileName(Assembly.GetEntryAssembly().Location));
+
+                var provider = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } });
                 var results = provider.CompileAssemblyFromFile(parameters, files);
 
                 var errors = results.Errors;
@@ -117,13 +122,13 @@ namespace cleanLayer.Library.Scripts
                 Log.WriteLine("Errors:");
                 foreach (CompilerError error in errors)
                     if (!error.IsWarning)
-                        Log.WriteLine("\t{0}", error.ErrorText);
+                        Log.WriteLine("\t({0}:{1}) {2}", error.Line, error.Column, error.ErrorText);
                 Log.WriteLine("");
 
                 Log.WriteLine("Warnings:");
                 foreach (CompilerError warning in errors)
                     if (warning.IsWarning)
-                        Log.WriteLine("\t{0}", warning.ErrorText);
+                        Log.WriteLine("\t({0}:{1}) {2}", warning.Line, warning.Column, warning.ErrorText);
                 Log.WriteLine("");
 
                 if (errors.HasErrors)

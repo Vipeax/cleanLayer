@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Restoration Druid", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Druid, "Restoration")]
     public class RestorationDruidBrain : Brain
     {
         public RestorationDruidBrain()
@@ -14,16 +17,6 @@ namespace cleanLayer.Brains
             AddAction(new Swiftmend(this, 5));
             AddAction(new WildGrowth(this, 6));
             AddAction(new HealingTouch(this, 7));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Druid; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Restoration"; }
         }
 
         protected override HarmfulSpellAction PullSpell

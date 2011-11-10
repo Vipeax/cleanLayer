@@ -4,22 +4,15 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains.Shaman
 {
+    [PluginInfo("Basic Restoration Shaman", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Shaman, "Restoration")]
     public class RestorationShamanBrain : Brain
     {
         public RestorationShamanBrain()
         {
             AddAction(new HealingSurge(this, 2));
             AddAction(new HealingWave(this, 1));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Shaman; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Restoration"; }
         }
 
         protected override HarmfulSpellAction PullSpell

@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Discipline Priest", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Priest, "Discipline")]
     public class DisciplinePriestBrain : Brain
     {
         public DisciplinePriestBrain()
@@ -14,16 +17,6 @@ namespace cleanLayer.Brains
             AddAction(new FlashHeal(this, 3));
             AddAction(new Penance(this, 2));     
             AddAction(new GreaterHeal(this, 1));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Priest; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Discipline"; }
         }
 
         protected override HarmfulSpellAction PullSpell

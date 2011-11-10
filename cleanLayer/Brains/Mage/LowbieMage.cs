@@ -4,21 +4,14 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Low-level Mage", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Mage, "Lowbie")]
     public class LowbieMage : Brain
     {
         public LowbieMage()
         {
             AddAction(new HarmfulSpellAction(this, 1, "Fireball", 30));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Mage; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Low level"; }
         }
 
         protected override HarmfulSpellAction PullSpell

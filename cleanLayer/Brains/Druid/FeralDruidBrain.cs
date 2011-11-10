@@ -4,6 +4,9 @@ using cleanLayer.Library.Combat;
 
 namespace cleanLayer.Brains
 {
+    [PluginInfo("Basic Feral Druid", "1.0")]
+    [PluginAuthor("miceiken")]
+    [BrainInfo(WoWClass.Druid, "Feral")]
     public class FeralDruidBrain : Brain
     {
         public FeralDruidBrain()
@@ -12,16 +15,6 @@ namespace cleanLayer.Brains
             AddAction(new Rake(this, 3));
             AddAction(new FerociousBite(this, 4));
             AddAction(new FaerieFire(this, 2));
-        }
-
-        public override WoWClass Class
-        {
-            get { return WoWClass.Druid; }
-        }
-
-        public override string Specialization
-        {
-            get { return "Feral"; }
         }
 
         protected override HarmfulSpellAction PullSpell

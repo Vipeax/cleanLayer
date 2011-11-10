@@ -203,7 +203,7 @@ namespace cleanLayer
                     Log.WriteLine("{0}:", i.Name);
                     foreach (var en in i.Enchants)
                     {
-                        Log.WriteLine("\tID: {0} - E: {1} - C: {2}", en.Id, en.Expiration, en.ChargesLeft);
+                        Log.WriteLine("\tID: {0}", en);
                     }
                 }
             }
